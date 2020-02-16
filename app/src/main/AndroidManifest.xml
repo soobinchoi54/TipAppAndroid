@@ -5,7 +5,6 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/main_acitivity"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -13,7 +12,9 @@
             android:name=".ViewHistory"
             android:label="@string/ViewHistory_activity">
         </activity>
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/main_acitivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

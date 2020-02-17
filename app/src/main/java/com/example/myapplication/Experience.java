@@ -1,5 +1,9 @@
 package com.example.myapplication;
 
+
+ /**************************************************************************************************
+                Experience is a data structure to be stored in database
+  ***************************************************************************************************/
 public class Experience {
 
     // Preset Fields
@@ -14,7 +18,7 @@ public class Experience {
     private String CRITERIA2;
     private String CRITERIA3;
 
-    public void Experience(String NAME, String LOCATION, String CATEGORY, String PRICE, String TOTAL_BILL, String TIP_PERCENTAGE, String TIME, String CRITERIA1, String CRITERIA2, String CRITERIA3){
+    public Experience(String NAME, String LOCATION, String CATEGORY, String PRICE, String TOTAL_BILL, String TIP_PERCENTAGE, String TIME, String CRITERIA1, String CRITERIA2, String CRITERIA3){
         this.NAME = NAME;
         this.LOCATION = LOCATION;
         this.CATEGORY = CATEGORY;
@@ -23,8 +27,47 @@ public class Experience {
         this.TIP_PERCENTAGE = TIP_PERCENTAGE;
         this.TIME = TIME;
         this.CRITERIA1 = CRITERIA1;
-        this.CRITERIA1 = CRITERIA2;
-        this.CRITERIA1 = CRITERIA3;
+        this.CRITERIA2 = CRITERIA2;
+        this.CRITERIA3 = CRITERIA3;
     }
 
-}
+     public String getName() {
+         return NAME;
+     }
+
+     public String getLocation() {
+         return LOCATION;
+     }
+
+     public String getCategory() {
+         return CATEGORY;
+     }
+
+     public String getPrice(){
+        return PRICE;
+     }
+
+     public String getTotalBill() {
+         return TOTAL_BILL;
+     }
+
+     public String getTipPercentage() {
+         return TIP_PERCENTAGE;
+     }
+
+     public String getTime() {
+         return TIME;
+     }
+
+     public String getCriteria1() {
+         return CRITERIA1;
+     }
+
+     public String getCriteria2() {
+         return CRITERIA2;
+     }
+
+     public String getCriteria3() {
+         return CRITERIA3;
+     }
+ }

@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onViewPast(View view){
-        Intent intent = new Intent(this, ViewHistory.class);
+        Intent intent = new Intent(this, ViewHistoryActivity.class);
         startActivity(intent);
     }
 }

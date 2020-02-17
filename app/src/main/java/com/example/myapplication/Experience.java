@@ -2,7 +2,7 @@ package com.example.myapplication;
 
 
  /**************************************************************************************************
-                Experience is a data structure to be stored in database
+  *              Experience is a data structure to be stored in database
   ***************************************************************************************************/
 public class Experience {
 

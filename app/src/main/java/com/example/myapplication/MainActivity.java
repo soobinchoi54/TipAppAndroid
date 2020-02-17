@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 /**************************************************************************************************
-                                        Main Menu
+ *                                        Main Menu
  ***************************************************************************************************/
 public class MainActivity extends AppCompatActivity {
 

@@ -10,9 +10,9 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
-/**************************************************************************************************
- Database System that provides API for storing all the experience records for further usages
- ***************************************************************************************************/
+/************************************************************************************************
+ * Database System that provides API for storing all the experience records for further usages
+ ************************************************************************************************/
 public class DataBaseHelper extends SQLiteOpenHelper {
 
     public static final String DB_NAME = "TipsDataBase";

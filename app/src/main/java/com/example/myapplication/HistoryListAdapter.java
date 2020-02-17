@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 /**************************************************************************************************
-                    Adapter class for ViewHistoryActivity.java
+ *              Adapter class for ViewHistoryActivity.java
  ***************************************************************************************************/
 public class HistoryListAdapter extends RecyclerView.Adapter<HistoryListAdapter.ViewHolder> {
     private List<Experience> experiences;

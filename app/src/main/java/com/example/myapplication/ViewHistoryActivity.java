@@ -18,7 +18,7 @@ import java.util.List;
 
 
 /**************************************************************************************************
-            An activity for displaying all the history experience records to UI
+ *           An activity for displaying all the history experience records to UI
  ***************************************************************************************************/
 public class ViewHistoryActivity extends AppCompatActivity {
 

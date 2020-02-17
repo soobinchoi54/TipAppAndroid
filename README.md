@@ -1,5 +1,5 @@
 # TipAppAndroid
-A tip application based on Android platform \n
+A tip application based on Android platform  
 To be continued
 
 

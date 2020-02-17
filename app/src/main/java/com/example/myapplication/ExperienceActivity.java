@@ -16,6 +16,17 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/************************************************************************************************
+ * The ExperienceActivity provides an interface for the users to create and submit a new dining
+ * experience. The interface allows users to rate their experience based on several preset
+ * criteria, which will be calculated to suggest a tip percentage. For example, if the user
+ * rates "ok" for the service criteria, 0% will be added to a preset tip rate of 15%. If the
+ * user rates "good", 1% will be added, resulting in a 16% tip for that meal. The increments
+ * at which the tip percentage changes is as below:
+ * "poor": -2%     "meh": -1%     "ok": 0%     "good": +1%     "great": +2%
+ ************************************************************************************************/
+
 public class ExperienceActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private Spinner spinner;

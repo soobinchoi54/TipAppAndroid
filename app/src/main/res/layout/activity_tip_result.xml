@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dp"
+    tools:context=".TipResultActivity">
+
+    <TextView
+        android:id="@+id/bill_total_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:padding="16dp"
+        android:textAlignment="center"
+        android:textSize="18dp"
+        android:text="Bill Total:"/>
+
+    <TextView
+        android:id="@+id/dollar_sign"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:layout_alignBaseline="@id/bill_total_tv"
+        android:layout_toRightOf="@id/bill_total_tv"
+        android:textAlignment="center"
+        android:textSize="18dp"
+        android:text=" $ "/>
+
+    <EditText
+        android:id="@+id/bill_total_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:layout_alignBaseline="@id/bill_total_tv"
+        android:layout_toRightOf="@id/dollar_sign"
+        android:hint="Enter total amount here"/>
+
+    <TextView
+        android:id="@+id/tip_percentage_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:layout_below="@id/bill_total_tv"
+        android:textAlignment="center"
+        android:textSize="18dp"
+        android:text="Tip Percentage:"/>
+
+    <TextView
+        android:id="@+id/tip_percentage_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:layout_below="@id/bill_total_tv"
+        android:layout_toRightOf="@id/tip_percentage_tv"
+        android:layout_alignBaseline="@id/tip_percentage_tv"
+        android:textAlignment="center"
+        android:textSize="18dp"/>
+
+    <TextView
+        android:id="@+id/percent_sign"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:layout_alignBaseline="@id/tip_percentage_tv"
+        android:layout_toRightOf="@id/tip_percentage_value"
+        android:textAlignment="center"
+        android:textSize="18dp"
+        android:text=" % "/>
+
+    <TextView
+        android:id="@+id/your_total_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:layout_marginTop="50dp"
+        android:layout_below="@id/tip_percentage_tv"
+        android:layout_centerInParent="true"
+        android:textAlignment="center"
+        android:textSize="25dp"
+        android:text="Your Total:"/>
+
+    <TextView
+        android:id="@+id/your_total_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:layout_below="@id/your_total_tv"
+        android:layout_centerInParent="true"
+        android:textAlignment="center"
+        android:textSize="25dp"/>
+
+    <Button
+        android:id="@+id/split_bill_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/your_total_value"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="50dp"
+        android:padding="16dp"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        android:text="Split the bill?"/>
+
+    <TextView
+        android:id="@+id/or"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:layout_below="@id/split_bill_button"
+        android:layout_centerInParent="true"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        android:text="or"/>
+
+    <Button
+        android:id="@+id/complete_experience_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/or"
+        android:layout_centerInParent="true"
+        android:padding="16dp"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        android:text="Complete Experience"/>
+
+
+</RelativeLayout>

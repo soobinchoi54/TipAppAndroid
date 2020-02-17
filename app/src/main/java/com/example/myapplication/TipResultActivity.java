@@ -34,7 +34,7 @@ public class TipResultActivity extends AppCompatActivity {
 
     double total;
     double tip;
-    double totalPlusTip;
+    private static double totalPlusTip;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,9 +71,22 @@ public class TipResultActivity extends AppCompatActivity {
         });
 
         /*
-         * CREATE COMPLETE EXPERIENCE BUTTON ELEMENT
+         * CREATE BUTTON ELEMENTS
          */
         // add submit button element
+        splitButton = findViewById(R.id.split_bill_button);
+
+        splitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(TipResultActivity.this,"Experience Completed!",Toast.LENGTH_SHORT).show();
+
+                // submit to tip result activity
+                Intent intent = new Intent(getApplicationContext(), SplitBillActivity.class);
+                startActivity(intent);
+            }
+        });
+
         completeButton = findViewById(R.id.complete_experience_button);
 
         completeButton.setOnClickListener(new View.OnClickListener() {
@@ -87,4 +100,10 @@ public class TipResultActivity extends AppCompatActivity {
             }
         });
     }
+
+    public static double getTotalPlusTip() {
+        return totalPlusTip;
+    }
+
 }
+

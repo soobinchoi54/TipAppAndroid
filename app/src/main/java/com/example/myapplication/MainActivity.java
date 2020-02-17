@@ -19,8 +19,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void onNewExperience(View view){
-        DataBaseHelper.addExperience(this, "BCD Tofu", "Irvine", "Korean", "$$", "25$", "15%", "20:00", "-1", "0", "+1");
-        DataBaseHelper.addExperience(this, "HaiDiLao", "Irvine", "Chinese", "$$$$", "100$", "15%", "50:00", "-1", "0", "+1");
+        // TEMP
+        Intent intent = new Intent(this, ExperienceActivity.class);
+        startActivity(intent);
     }
 
     public void onViewPast(View view){

@@ -2,12 +2,12 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -15,14 +15,26 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.lang.Math.floor;
+
+
+/************************************************************************************************
+ * The ExperienceActivity provides an interface for the users to create and submit a new dining
+ * experience. The interface allows users to rate their experience based on several preset
+ * criteria, which will be calculated to suggest a tip percentage. For example, if the user
+ * rates "ok" for the service criteria, 0% will be added to a preset tip rate of 15%. If the
+ * user rates "good", 1% will be added, resulting in a 16% tip for that meal. The increments
+ * at which the tip percentage changes is as below:
+ * "poor": -2%     "meh": -1%     "ok": 0%     "good": +1%     "great": +2%
+ ************************************************************************************************/
+
 public class ExperienceActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private Spinner spinner;
     private RadioGroup radioGroup;
-    private RadioButton radioButton;
     private Button submitButton;
 
-    private float tipPercentage;
+    private static float tipPercentage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +77,6 @@ public class ExperienceActivity extends AppCompatActivity implements AdapterView
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
 
-                View radioButton = radioGroup.findViewById(checkedId);
                 // set starting tip percentage
                 tipPercentage = 0.15f;
 
@@ -74,31 +85,31 @@ public class ExperienceActivity extends AppCompatActivity implements AdapterView
                             // -2%
                             tipPercentage -= 0.02f;
                         // Showing selected spinner item
-                        Toast.makeText(ExperienceActivity.this, "Tip Percentage: " + tipPercentage, Toast.LENGTH_LONG).show();
+                        Toast.makeText(ExperienceActivity.this, "Tip Percentage: " + floor(tipPercentage*100), Toast.LENGTH_LONG).show();
                         break;
                     case R.id.rate_meh:
                             // -1%
                             tipPercentage -= 0.01f;
                         // Showing selected spinner item
-                        Toast.makeText(ExperienceActivity.this, "Tip Percentage: " + tipPercentage, Toast.LENGTH_LONG).show();
+                        Toast.makeText(ExperienceActivity.this, "Tip Percentage: " + floor(tipPercentage*100), Toast.LENGTH_LONG).show();
                         break;
                     case R.id.rate_ok:
                             // 0%
                             tipPercentage -= 0.00f;
                         // Showing selected spinner item
-                        Toast.makeText(ExperienceActivity.this, "Tip Percentage: " + tipPercentage, Toast.LENGTH_LONG).show();
+                        Toast.makeText(ExperienceActivity.this, "Tip Percentage: " + floor(tipPercentage*100), Toast.LENGTH_LONG).show();
                         break;
                     case R.id.rate_good:
                             // +1%
                             tipPercentage += 0.01f;
                         // Showing selected spinner item
-                        Toast.makeText(ExperienceActivity.this, "Tip Percentage: " + tipPercentage, Toast.LENGTH_LONG).show();
+                        Toast.makeText(ExperienceActivity.this, "Tip Percentage: " + floor(tipPercentage*100), Toast.LENGTH_LONG).show();
                         break;
                     case R.id.rate_great:
                             // +2%
                             tipPercentage += 0.02;
                         // Showing selected spinner item
-                        Toast.makeText(ExperienceActivity.this, "Tip Percentage: " + tipPercentage, Toast.LENGTH_LONG).show();
+                        Toast.makeText(ExperienceActivity.this, "Tip Percentage: " + floor(tipPercentage*100), Toast.LENGTH_LONG).show();
                         break;
                 }
             }
@@ -113,7 +124,13 @@ public class ExperienceActivity extends AppCompatActivity implements AdapterView
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(ExperienceActivity.this,"You're Tipping: " + tipPercentage,Toast.LENGTH_SHORT).show();
+                Toast.makeText(ExperienceActivity.this,"You're Tipping: " + floor(tipPercentage*100) + " %",Toast.LENGTH_SHORT).show();
+
+                // submit to tip result activity
+                Intent intent = new Intent(getApplicationContext(), TipResultActivity.class);
+                startActivity(intent);
+
+
             }
         });
 
@@ -134,6 +151,10 @@ public class ExperienceActivity extends AppCompatActivity implements AdapterView
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
         // Do nothing
+    }
+
+    public static float getTipPercentage() {
+        return tipPercentage;
     }
 
 }

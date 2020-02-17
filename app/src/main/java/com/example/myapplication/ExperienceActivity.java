@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -114,6 +115,12 @@ public class ExperienceActivity extends AppCompatActivity implements AdapterView
             @Override
             public void onClick(View v) {
                 Toast.makeText(ExperienceActivity.this,"You're Tipping: " + tipPercentage,Toast.LENGTH_SHORT).show();
+
+                // submit to tip result activity
+                Intent intent = new Intent(getApplicationContext(), TipResultActivity.class);
+                startActivity(intent);
+
+
             }
         });
 

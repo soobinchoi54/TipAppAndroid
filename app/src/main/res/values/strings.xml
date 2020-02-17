@@ -1,11 +1,12 @@
 <resources>
 
-<!--    Duo-->
+    <!--    Duo-->
     <string name="main_acitivity">Tips App</string>
     <string name="ViewHistory_activity">View History</string>
     <string name="new_experience">Start New Experience</string>
     <string name="history_list">View My History List</string>
 
-<!--    Soobin-->
-
+    <!--    Soobin-->
+    <string name="add_experience">Add an Experience</string>
+    <string name="tip_result">Your Bill</string>
 </resources>

@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -31,7 +30,6 @@ public class ExperienceActivity extends AppCompatActivity implements AdapterView
 
     private Spinner spinner;
     private RadioGroup radioGroup;
-    private RadioButton radioButton;
     private Button submitButton;
 
     private float tipPercentage;
@@ -77,7 +75,6 @@ public class ExperienceActivity extends AppCompatActivity implements AdapterView
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
 
-                View radioButton = radioGroup.findViewById(checkedId);
                 // set starting tip percentage
                 tipPercentage = 0.15f;
 

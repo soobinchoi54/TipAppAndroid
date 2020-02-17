@@ -51,6 +51,8 @@ public class HistoryListAdapter extends RecyclerView.Adapter<HistoryListAdapter.
         this.experiences = experiences;
         notifyDataSetChanged();
     }
+
+
     @NonNull
     @Override
     public HistoryListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

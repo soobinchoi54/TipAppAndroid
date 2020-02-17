@@ -118,4 +118,16 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return experiences;
     }
 
+    public static void deleteTable(Context context){
+        SQLiteOpenHelper dataBaseHelper = new DataBaseHelper(context);
+        SQLiteDatabase db = dataBaseHelper.getWritableDatabase();
+        try {
+            db.execSQL("delete from TipsDataBase");
+            System.out.println("Database Table deleted");
+        } catch (SQLiteException e){
+            Toast toast = Toast.makeText(context, "Database unavailable", Toast.LENGTH_SHORT);
+            toast.show();
+        }
+    }
+
 }

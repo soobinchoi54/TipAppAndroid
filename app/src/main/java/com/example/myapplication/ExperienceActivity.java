@@ -15,6 +15,8 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.lang.Math.floor;
+
 
 /************************************************************************************************
  * The ExperienceActivity provides an interface for the users to create and submit a new dining
@@ -32,7 +34,7 @@ public class ExperienceActivity extends AppCompatActivity implements AdapterView
     private RadioGroup radioGroup;
     private Button submitButton;
 
-    private float tipPercentage;
+    private static float tipPercentage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,31 +85,31 @@ public class ExperienceActivity extends AppCompatActivity implements AdapterView
                             // -2%
                             tipPercentage -= 0.02f;
                         // Showing selected spinner item
-                        Toast.makeText(ExperienceActivity.this, "Tip Percentage: " + tipPercentage, Toast.LENGTH_LONG).show();
+                        Toast.makeText(ExperienceActivity.this, "Tip Percentage: " + floor(tipPercentage*100), Toast.LENGTH_LONG).show();
                         break;
                     case R.id.rate_meh:
                             // -1%
                             tipPercentage -= 0.01f;
                         // Showing selected spinner item
-                        Toast.makeText(ExperienceActivity.this, "Tip Percentage: " + tipPercentage, Toast.LENGTH_LONG).show();
+                        Toast.makeText(ExperienceActivity.this, "Tip Percentage: " + floor(tipPercentage*100), Toast.LENGTH_LONG).show();
                         break;
                     case R.id.rate_ok:
                             // 0%
                             tipPercentage -= 0.00f;
                         // Showing selected spinner item
-                        Toast.makeText(ExperienceActivity.this, "Tip Percentage: " + tipPercentage, Toast.LENGTH_LONG).show();
+                        Toast.makeText(ExperienceActivity.this, "Tip Percentage: " + floor(tipPercentage*100), Toast.LENGTH_LONG).show();
                         break;
                     case R.id.rate_good:
                             // +1%
                             tipPercentage += 0.01f;
                         // Showing selected spinner item
-                        Toast.makeText(ExperienceActivity.this, "Tip Percentage: " + tipPercentage, Toast.LENGTH_LONG).show();
+                        Toast.makeText(ExperienceActivity.this, "Tip Percentage: " + floor(tipPercentage*100), Toast.LENGTH_LONG).show();
                         break;
                     case R.id.rate_great:
                             // +2%
                             tipPercentage += 0.02;
                         // Showing selected spinner item
-                        Toast.makeText(ExperienceActivity.this, "Tip Percentage: " + tipPercentage, Toast.LENGTH_LONG).show();
+                        Toast.makeText(ExperienceActivity.this, "Tip Percentage: " + floor(tipPercentage*100), Toast.LENGTH_LONG).show();
                         break;
                 }
             }
@@ -122,7 +124,7 @@ public class ExperienceActivity extends AppCompatActivity implements AdapterView
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(ExperienceActivity.this,"You're Tipping: " + tipPercentage,Toast.LENGTH_SHORT).show();
+                Toast.makeText(ExperienceActivity.this,"You're Tipping: " + floor(tipPercentage*100) + " %",Toast.LENGTH_SHORT).show();
 
                 // submit to tip result activity
                 Intent intent = new Intent(getApplicationContext(), TipResultActivity.class);
@@ -149,6 +151,10 @@ public class ExperienceActivity extends AppCompatActivity implements AdapterView
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
         // Do nothing
+    }
+
+    public static float getTipPercentage() {
+        return tipPercentage;
     }
 
 }

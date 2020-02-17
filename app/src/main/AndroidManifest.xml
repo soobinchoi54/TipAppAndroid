@@ -9,9 +9,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".TipResultActivity"
+            android:label="@string/tip_result"/>
+        <activity
+            android:name=".ExperienceActivity"
+            android:label="@string/add_experience"/>
+        <activity
             android:name=".ViewHistory"
-            android:label="@string/ViewHistory_activity">
-        </activity>
+            android:label="@string/ViewHistory_activity" />
         <activity
             android:name=".MainActivity"
             android:label="@string/main_acitivity">

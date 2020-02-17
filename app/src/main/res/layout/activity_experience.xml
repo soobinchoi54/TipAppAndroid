@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dp"
+    tools:context=".ExperienceActivity">
+
+    <TextView
+        android:id="@+id/review_criteria"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:textAlignment="center"
+        android:text="Criteria: "/>
+
+    <Spinner
+        android:id="@+id/spinner_criteria_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:layout_below="@id/review_criteria"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <RadioGroup
+        android:id="@+id/radio_group_rate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/spinner_criteria_1"
+        android:layout_centerInParent="true"
+        android:orientation="horizontal">
+        <RadioButton
+            android:id="@+id/rate_poor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="Poor"/>
+        <RadioButton
+            android:id="@+id/rate_meh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="Meh"/>
+        <RadioButton
+            android:id="@+id/rate_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="Ok"/>
+        <RadioButton
+            android:id="@+id/rate_good"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="Good"/>
+        <RadioButton
+            android:id="@+id/rate_great"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="Great"/>
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/submit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/radio_group_rate"
+        android:layout_alignParentRight="true"
+        android:text="Submit"/>
+
+</RelativeLayout>

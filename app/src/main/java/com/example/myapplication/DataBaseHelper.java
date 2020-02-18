@@ -135,7 +135,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     }
 
     public static void testAdd2Experience(Context context){
-        addExperience(context, "BCD", "Irvine", "Korean", "$$", "25$", "15%", "30:00", "-1%", "0%", "+1");
-        addExperience(context, "HaiDiLao", "Irvine", "Chinese", "$$$$", "100$", "15%", "50:00", "-1%", "0%", "+1");
+        addExperience(context, "BCD", "Irvine", "Korean", "$$", "25$", "15%", "30:00", "-1%", "0%", "+1%");
+        addExperience(context, "HaiDiLao", "Irvine", "Chinese", "$$$$", "100$", "15%", "50:00", "-1%", "0%", "+1%");
     }
 }

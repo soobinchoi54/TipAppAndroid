@@ -27,13 +27,9 @@ public class ViewHistoryActivity extends AppCompatActivity {
     private HistoryListAdapter adapter;
     private List<Experience> experiences;
 
-    private SQLiteDatabase db;
-    private Cursor cursor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //DataBaseHelper.addExperience(this, "BCD Tofu", "Irvine", "Korean", "$$", "25$", "15%", "20:00", "-1", "0", "+1");
-        //DataBaseHelper.addExperience(this, "HaiDiLao", "Irvine", "Chinese", "$$$$", "100$", "15%", "50:00", "-1", "0", "+1");
         setContentView(R.layout.activity_view_history);
         experiences = new ArrayList<>();
         adapter = new HistoryListAdapter(experiences);
@@ -49,6 +45,15 @@ public class ViewHistoryActivity extends AppCompatActivity {
         adapter.setData(experiences);
     }
 
+    public void onClickDeleteTable(View view) {
+        DataBaseHelper.deleteTable(this);
+        fetchData();
+    }
+
+    public void onClickTest(View view) {
+        DataBaseHelper.testAdd2Experience(this);
+        fetchData();
+    }
 }
 
 

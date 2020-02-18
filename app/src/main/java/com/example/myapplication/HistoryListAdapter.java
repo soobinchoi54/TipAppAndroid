@@ -51,6 +51,8 @@ public class HistoryListAdapter extends RecyclerView.Adapter<HistoryListAdapter.
         this.experiences = experiences;
         notifyDataSetChanged();
     }
+
+
     @NonNull
     @Override
     public HistoryListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -62,15 +64,15 @@ public class HistoryListAdapter extends RecyclerView.Adapter<HistoryListAdapter.
     public void onBindViewHolder(@NonNull HistoryListAdapter.ViewHolder holder, int position) {
         Experience experience = experiences.get(position);
         holder.tvName.setText(experience.getName());
-        holder.tvLocation.setText(experience.getLocation());
-        holder.tvCategory.setText(experience.getCategory());
-        holder.tvPrice.setText(experience.getPrice());
-        holder.tvTotalBill.setText(experience.getTotalBill());
-        holder.tvTipPercentage.setText(experience.getTipPercentage());
-        holder.tvTime.setText(experience.getTime());
-        holder.tvCritera1.setText(experience.getCriteria1());
-        holder.tvCritera2.setText(experience.getCriteria2());
-        holder.tvCritera3.setText(experience.getCriteria3());
+        holder.tvLocation.setText("Location: " + experience.getLocation());
+        holder.tvCategory.setText("Category " + experience.getCategory());
+        holder.tvPrice.setText("Price " + experience.getPrice());
+        holder.tvTotalBill.setText("Total Bill " + experience.getTotalBill());
+        holder.tvTipPercentage.setText("Tip Percentage " + experience.getTipPercentage());
+        holder.tvTime.setText("Time spent " + experience.getTime());
+        holder.tvCritera1.setText("Critera1 " + experience.getCriteria1());
+        holder.tvCritera2.setText("Critera2 " + experience.getCriteria2());
+        holder.tvCritera3.setText("Critera3 " + experience.getCriteria3());
         // Picasso.get().load(IMAGE_URL+ experience.getPosterPath()).into(holder.ivMovie);
     }
 

@@ -44,6 +44,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 + "CRITERIA3 TEXT);");
     }
 
+    // add an experience to database (inner logic)
     private static void add(SQLiteDatabase db, String NAME, String LOCATION, String CATEGORY, String PRICE, String TOTAL_BILL, String TIP_PERCENTAGE, String TIME, String CRITERIA1, String CRITERIA2, String CRITERIA3){
         ContentValues experience = new ContentValues();
         experience.put("NAME", NAME);
@@ -60,6 +61,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         System.out.println("Record Writen");
     }
 
+    // query experiences and return a List
     private static List<Experience> get(SQLiteDatabase db){
         List<Experience> experiences = new ArrayList<>();
         boolean firstData = true;
@@ -93,7 +95,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return experiences;
     }
 
-
+    // API: add an experience to database
     public static void addExperience(Context context, String NAME, String LOCATION, String CATEGORY, String PRICE, String TOTAL_BILL, String TIP_PERCENTAGE, String TIME, String CRITERIA1, String CRITERIA2, String CRITERIA3){
         SQLiteOpenHelper dataBaseHelper = new DataBaseHelper(context);
         SQLiteDatabase db = dataBaseHelper.getWritableDatabase();
@@ -105,6 +107,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         }
     }
 
+    // API: retrieve experiences from database
     public static List<Experience> getExperiences(Context context){
         SQLiteOpenHelper dataBaseHelper = new DataBaseHelper(context);
         SQLiteDatabase db = dataBaseHelper.getReadableDatabase();
@@ -118,4 +121,21 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return experiences;
     }
 
+    // API: delete all data from database
+    public static void deleteTable(Context context){
+        SQLiteOpenHelper dataBaseHelper = new DataBaseHelper(context);
+        SQLiteDatabase db = dataBaseHelper.getWritableDatabase();
+        try {
+            db.execSQL("delete from TipsDataBase");
+            System.out.println("Database Table deleted");
+        } catch (SQLiteException e){
+            Toast toast = Toast.makeText(context, "Database unavailable", Toast.LENGTH_SHORT);
+            toast.show();
+        }
+    }
+
+    public static void testAdd2Experience(Context context){
+        addExperience(context, "BCD", "Irvine", "Korean", "$$", "25$", "15%", "30:00", "-1%", "0%", "+1");
+        addExperience(context, "HaiDiLao", "Irvine", "Chinese", "$$$$", "100$", "15%", "50:00", "-1%", "0%", "+1");
+    }
 }

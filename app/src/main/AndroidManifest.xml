@@ -8,17 +8,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity
+            android:name=".SplitBillActivity"
+            android:label="@string/split_bill" />
         <activity
             android:name=".TipResultActivity"
-            android:label="@string/tip_result"/>
+            android:label="@string/tip_result" />
         <activity
             android:name=".ExperienceActivity"
-            android:label="@string/add_experience"/>
-      
-        <activity android:name=".ViewHistoryActivity"
-            android:label="@string/ViewHistory_activity"></activity>
-
+            android:label="@string/add_experience" />
+        <activity
+            android:name=".ViewHistoryActivity"
+            android:label="@string/ViewHistory_activity" />
         <activity
             android:name=".MainActivity"
             android:label="@string/main_acitivity">

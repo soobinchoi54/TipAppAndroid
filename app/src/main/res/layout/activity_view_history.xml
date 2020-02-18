@@ -5,13 +5,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ViewHistoryActivity">
-    <Button
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/deleteTable"
-        android:layout_marginTop="10dp"
-        android:onClick="onClickDeleteTable"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/deleteTable"
+            android:layout_marginTop="10dp"
+            android:onClick="onClickDeleteTable"
+            tools:ignore="MissingConstraints" />
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="testAdd"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="321dp"
+            android:onClick="onClickTest"
+            tools:ignore="MissingConstraints" />
+
+    </RelativeLayout>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/experienceList"
@@ -22,4 +38,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginLeft="8dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

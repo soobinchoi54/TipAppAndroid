@@ -17,10 +17,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-
+    //moves to restaurant chooser activity
     public void onNewExperience(View view){
         // TEMP
-        Intent intent = new Intent(this, ExperienceActivity.class);
+        Intent intent = new Intent(this, RestaurantChooserActivity.class);
         startActivity(intent);
     }
 

@@ -10,6 +10,9 @@
         android:theme="@style/AppTheme">
         <activity android:name=".RestaurantChooserActivity"></activity>
         <activity
+            android:name=".SplitBillActivity"
+            android:label="@string/split_bill" />
+        <activity
             android:name=".TipResultActivity"
             android:label="@string/tip_result" />
         <activity

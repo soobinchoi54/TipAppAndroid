@@ -65,14 +65,14 @@ public class HistoryListAdapter extends RecyclerView.Adapter<HistoryListAdapter.
         Experience experience = experiences.get(position);
         holder.tvName.setText(experience.getName());
         holder.tvLocation.setText("Location: " + experience.getLocation());
-        holder.tvCategory.setText("Category " + experience.getCategory());
-        holder.tvPrice.setText("Price " + experience.getPrice());
-        holder.tvTotalBill.setText("Total Bill " + experience.getTotalBill());
-        holder.tvTipPercentage.setText("Tip Percentage " + experience.getTipPercentage());
-        holder.tvTime.setText("Time spent " + experience.getTime());
-        holder.tvCritera1.setText("Critera1 " + experience.getCriteria1());
-        holder.tvCritera2.setText("Critera2 " + experience.getCriteria2());
-        holder.tvCritera3.setText("Critera3 " + experience.getCriteria3());
+        holder.tvCategory.setText("Category: " + experience.getCategory());
+        holder.tvPrice.setText("Price: " + experience.getPrice());
+        holder.tvTotalBill.setText("Total Bill: " + experience.getTotalBill());
+        holder.tvTipPercentage.setText("Tip Percentage: " + experience.getTipPercentage());
+        holder.tvTime.setText("Time spent: " + experience.getTime());
+        holder.tvCritera1.setText("Critera1: " + experience.getCriteria1());
+        holder.tvCritera2.setText("Critera2: " + experience.getCriteria2());
+        holder.tvCritera3.setText("Critera3: " + experience.getCriteria3());
         // Picasso.get().load(IMAGE_URL+ experience.getPosterPath()).into(holder.ivMovie);
     }
 

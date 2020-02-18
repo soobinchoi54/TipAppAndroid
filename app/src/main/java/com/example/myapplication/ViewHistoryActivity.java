@@ -49,6 +49,11 @@ public class ViewHistoryActivity extends AppCompatActivity {
         DataBaseHelper.deleteTable(this);
         fetchData();
     }
+
+    public void onClickTest(View view) {
+        DataBaseHelper.testAdd2Experience(this);
+        fetchData();
+    }
 }
 
 

@@ -17,8 +17,10 @@ public class Experience {
     private String CRITERIA1;
     private String CRITERIA2;
     private String CRITERIA3;
+    private String CUSTOM;
+     private String CUSTOM_RATE;
 
-    public Experience(String NAME, String LOCATION, String CATEGORY, String PRICE, String TOTAL_BILL, String TIP_PERCENTAGE, String TIME, String CRITERIA1, String CRITERIA2, String CRITERIA3){
+    public Experience(String NAME, String LOCATION, String CATEGORY, String PRICE, String TOTAL_BILL, String TIP_PERCENTAGE, String TIME, String CRITERIA1, String CRITERIA2, String CRITERIA3, String CUSTOM, String CUSTOM_RATE){
         this.NAME = NAME;
         this.LOCATION = LOCATION;
         this.CATEGORY = CATEGORY;
@@ -29,6 +31,8 @@ public class Experience {
         this.CRITERIA1 = CRITERIA1;
         this.CRITERIA2 = CRITERIA2;
         this.CRITERIA3 = CRITERIA3;
+        this.CUSTOM = CUSTOM;
+        this.CUSTOM_RATE = CUSTOM_RATE;
     }
 
      public String getName() {
@@ -67,7 +71,11 @@ public class Experience {
          return CRITERIA2;
      }
 
-     public String getCriteria3() {
-         return CRITERIA3;
+     public String getCriteria3() { return CRITERIA3; }
+
+     public String getCustom() {
+         return CUSTOM;
      }
+
+     public String getCUSTOM_RATE() {return CUSTOM_RATE;}
  }

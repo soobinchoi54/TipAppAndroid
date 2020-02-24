@@ -28,6 +28,7 @@ public class HistoryListAdapter extends RecyclerView.Adapter<HistoryListAdapter.
         TextView tvCritera1;
         TextView tvCritera2;
         TextView tvCritera3;
+        TextView tvCustom;
 
 
 
@@ -43,6 +44,7 @@ public class HistoryListAdapter extends RecyclerView.Adapter<HistoryListAdapter.
             tvCritera1 = itemView.findViewById(R.id.tvCritera1);
             tvCritera2 = itemView.findViewById(R.id.tvCritera2);
             tvCritera3 = itemView.findViewById(R.id.tvCritera3);
+            tvCustom = itemView.findViewById(R.id.tvCustom);
 
         }
     }
@@ -73,6 +75,14 @@ public class HistoryListAdapter extends RecyclerView.Adapter<HistoryListAdapter.
         holder.tvCritera1.setText("Critera1: " + experience.getCriteria1());
         holder.tvCritera2.setText("Critera2: " + experience.getCriteria2());
         holder.tvCritera3.setText("Critera3: " + experience.getCriteria3());
+        String[] customs = experience.getCustom().split("#");
+        String[] custom_rates = experience.getCUSTOM_RATE().split("#");
+        StringBuilder customBuilder = new StringBuilder();
+        for(int i = 0; i < customs.length; i++){
+            customBuilder.append(customs[i].trim() + ": " + custom_rates[i].trim() + "\n");
+        }
+        String custom = customBuilder.toString();
+        holder.tvCustom.setText(custom);
         // Picasso.get().load(IMAGE_URL+ experience.getPosterPath()).into(holder.ivMovie);
     }
 

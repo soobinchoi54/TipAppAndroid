@@ -41,7 +41,7 @@ public class RestaurantChooserActivity extends AppCompatActivity implements Loca
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restaurant_chooser);
-        //getLocation();
+        getLocation();
         System.out.println("latitude: " + latitude + " longitude: " + longitude);
         showRestaurantList();
 
@@ -66,7 +66,7 @@ public class RestaurantChooserActivity extends AppCompatActivity implements Loca
         RestaurantApiService restaurantApiService = retrofit.create(RestaurantApiService.class);
         //get location to update api service
         //33.6405 | 117.8443  , 37.80587 | -122.42058
-        Call<RestaurantList> call = restaurantApiService.getRestaurantList(AUTHORIZATION, 33.6405, -117.8443, 17000);
+        Call<RestaurantList> call = restaurantApiService.getRestaurantList(AUTHORIZATION, latitude, longitude, 17000);
         call.enqueue(new Callback<RestaurantList>() {
             @Override
             public void onResponse(Call<RestaurantList> call, Response<RestaurantList> response) {
@@ -125,7 +125,7 @@ public class RestaurantChooserActivity extends AppCompatActivity implements Loca
     @Override
     protected void onPause() {
         super.onPause();
-        locationManager.removeUpdates(this);
+        // locationManager.removeUpdates(this);
 
     }
 

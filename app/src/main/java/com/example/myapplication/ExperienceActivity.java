@@ -42,6 +42,8 @@ public class ExperienceActivity extends AppCompatActivity implements AdapterView
 
     private static float tipPercentage;
 
+    private StringBuilder resultData;
+
     //TIMER_SERVICE : Fields
     private TimerService timer = new TimerService();
     private boolean bound = false;
@@ -105,9 +107,28 @@ public class ExperienceActivity extends AppCompatActivity implements AdapterView
                 }
 
                 String message = "";
+                resultData = new StringBuilder("");
                 // get the value of selected answers from custom adapter
                 for (int i = 0; i < CustomAdapter.selectedAnswers.size(); i++) {
                     message = message + "\n" + (i + 1) + " " + CustomAdapter.selectedAnswers.get(i);
+
+                    switch (CustomAdapter.selectedAnswers.get(i).toString()) {
+                        case "-0.02":
+                            resultData.append("-2%#");
+                            break;
+                        case "-0.01":
+                            resultData.append("-1%#");
+                            break;
+                        case "0.0":
+                            resultData.append("0%#");
+                            break;
+                        case "0.01":
+                            resultData.append("+1%#");
+                            break;
+                        case "0.02":
+                            resultData.append("+2%#");
+                            break;
+                    }
                 }
                 // display the message on screen with the help of Toast.
                 Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
@@ -115,8 +136,23 @@ public class ExperienceActivity extends AppCompatActivity implements AdapterView
                 //TIMER_SERVICE : stop time when we go to TipResultActivity ~ will stop timer
                 running = false;
                 // submit to tip result activity
+
                 Intent intent = new Intent(getApplicationContext(), TipResultActivity.class);
+
+                // Create bundle containing data from previous activity
+                Bundle bundle = getIntent().getExtras();
+
+                // putExtra review data to pass to next intent
+                if (bundle!=null) {
+                    intent.putExtras(bundle);
+                    intent.putExtra("CRITERIA1", CustomAdapter.selectedAnswers.get(0));
+                    intent.putExtra("CRITERIA2", CustomAdapter.selectedAnswers.get(1));
+                    intent.putExtra("CRITERIA3", CustomAdapter.selectedAnswers.get(2));
+                }
                 startActivity(intent);
+
+                System.out.println(resultData.toString());
+                System.out.println(CustomAdapter.selectedAnswers.get(0) + " " + CustomAdapter.selectedAnswers.get(1) + " " + CustomAdapter.selectedAnswers.get(2));
 
             }
         });

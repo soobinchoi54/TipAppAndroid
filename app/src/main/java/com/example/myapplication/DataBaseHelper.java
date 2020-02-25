@@ -32,7 +32,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     }
 
     private void updateMyDatabase(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE TipsDataBase");
+        db.execSQL("DROP TABLE IF EXISTS TipsDataBase");
         db.execSQL("CREATE TABLE TipsDataBase (_id INTEGER PRIMARY KEY AUTOINCREMENT, " + "NAME TEXT, "
                 + "LOCATION TEXT, "
                 + "CATEGORY TEXT, "

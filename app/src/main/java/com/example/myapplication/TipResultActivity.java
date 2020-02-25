@@ -105,5 +105,8 @@ public class TipResultActivity extends AppCompatActivity {
         return totalPlusTip;
     }
 
+    public void onClickEdit(View view) {
+        onBackPressed();
+    }
 }
 

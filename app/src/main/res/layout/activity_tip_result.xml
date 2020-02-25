@@ -47,6 +47,8 @@
         android:textSize="18dp"
         android:text="Tip Percentage:"/>
 
+
+
     <TextView
         android:id="@+id/tip_percentage_value"
         android:layout_width="wrap_content"
@@ -68,6 +70,19 @@
         android:textAlignment="center"
         android:textSize="18dp"
         android:text=" % "/>
+
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:layout_alignBaseline="@id/tip_percentage_tv"
+        android:layout_toRightOf="@id/percent_sign"
+        android:textAlignment="center"
+        android:textSize="6dp"
+        android:text="Want to edit your experience?"
+        android:onClick="onClickEdit"/>
 
     <TextView
         android:id="@+id/your_total_tv"
@@ -124,6 +139,7 @@
         android:textAlignment="center"
         android:textSize="20dp"
         android:text="Complete Experience"/>
+
 
 
 </RelativeLayout>

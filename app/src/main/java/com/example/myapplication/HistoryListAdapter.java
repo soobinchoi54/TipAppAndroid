@@ -9,6 +9,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 /**************************************************************************************************
  *              Adapter class for ViewHistoryActivity.java
@@ -18,6 +20,7 @@ public class HistoryListAdapter extends RecyclerView.Adapter<HistoryListAdapter.
     public HistoryListAdapter(List<Experience> experiences) { this.experiences = experiences; }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
+        ImageView ivRestaurant;
         TextView tvName;
         TextView tvLocation;
         TextView tvCategory;
@@ -28,11 +31,13 @@ public class HistoryListAdapter extends RecyclerView.Adapter<HistoryListAdapter.
         TextView tvCritera1;
         TextView tvCritera2;
         TextView tvCritera3;
+        TextView tvCustom;
 
 
 
         ViewHolder(View itemView) {
             super(itemView);
+            ivRestaurant = itemView.findViewById(R.id.ivRestaurant);
             tvName = itemView.findViewById(R.id.tvName);
             tvLocation = itemView.findViewById(R.id.tvLocation);
             tvCategory = itemView.findViewById(R.id.tvCategory);
@@ -43,6 +48,7 @@ public class HistoryListAdapter extends RecyclerView.Adapter<HistoryListAdapter.
             tvCritera1 = itemView.findViewById(R.id.tvCritera1);
             tvCritera2 = itemView.findViewById(R.id.tvCritera2);
             tvCritera3 = itemView.findViewById(R.id.tvCritera3);
+            tvCustom = itemView.findViewById(R.id.tvCustom);
 
         }
     }
@@ -73,7 +79,15 @@ public class HistoryListAdapter extends RecyclerView.Adapter<HistoryListAdapter.
         holder.tvCritera1.setText("Critera1: " + experience.getCriteria1());
         holder.tvCritera2.setText("Critera2: " + experience.getCriteria2());
         holder.tvCritera3.setText("Critera3: " + experience.getCriteria3());
-        // Picasso.get().load(IMAGE_URL+ experience.getPosterPath()).into(holder.ivMovie);
+        String[] customs = experience.getCustom().split("#");
+        String[] custom_rates = experience.getCUSTOM_RATE().split("#");
+        StringBuilder customBuilder = new StringBuilder();
+        for(int i = 0; i < customs.length; i++){
+            customBuilder.append(customs[i].trim() + ": " + custom_rates[i].trim() + "\n");
+        }
+        String custom = customBuilder.toString();
+        holder.tvCustom.setText(custom);
+        Picasso.get().load(experience.getImage()).into(holder.ivRestaurant);
     }
 
 

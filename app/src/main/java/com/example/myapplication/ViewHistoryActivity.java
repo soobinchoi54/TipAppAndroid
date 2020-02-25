@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
@@ -11,6 +12,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -23,7 +25,7 @@ import java.util.List;
 public class ViewHistoryActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-
+    private RelativeLayout buttons;
     private HistoryListAdapter adapter;
     private List<Experience> experiences;
 
@@ -40,6 +42,13 @@ public class ViewHistoryActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        buttons = findViewById(R.id.buttons);
+        buttons.bringToFront();
+    }
+
     private void fetchData(){
         experiences = DataBaseHelper.getExperiences(this);
         adapter.setData(experiences);
@@ -53,6 +62,17 @@ public class ViewHistoryActivity extends AppCompatActivity {
     public void onClickTest(View view) {
         DataBaseHelper.testAdd2Experience(this);
         fetchData();
+    }
+
+    @Override
+    public void onBackPressed(){
+        // go back to main menu to prevent data overwriting
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void onClickHome(View view) {
+        onBackPressed();
     }
 }
 

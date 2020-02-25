@@ -48,8 +48,9 @@ public class TipResultActivity extends AppCompatActivity {
 
         // set text for tip percentage text view
         tip = (double) ExperienceActivity.getTipPercentage();
-        tipPercentage.setText(String.valueOf((int)floor(tip*100)));
-
+        System.out.println(tip);
+        DecimalFormat f = new DecimalFormat("##");
+        tipPercentage.setText((f.format(tip*100)));
 
         // add addTextChanged listener to edit text field for bill total to grab double value of total before tip
         billTotal.addTextChangedListener(new TextWatcher() {

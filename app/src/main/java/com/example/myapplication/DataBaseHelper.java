@@ -16,7 +16,7 @@ import java.util.List;
 public class DataBaseHelper extends SQLiteOpenHelper {
 
     public static final String DB_NAME = "TipsDataBase";
-    public static final int DB_VERSION = 1;
+    public static final int DB_VERSION = 2;
 
     DataBaseHelper(Context context){
         super(context, DB_NAME, null, DB_VERSION);
@@ -32,6 +32,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     }
 
     private void updateMyDatabase(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE TipsDataBase");
         db.execSQL("CREATE TABLE TipsDataBase (_id INTEGER PRIMARY KEY AUTOINCREMENT, " + "NAME TEXT, "
                 + "LOCATION TEXT, "
                 + "CATEGORY TEXT, "
@@ -43,11 +44,12 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 + "CRITERIA2 TEXT, "
                 + "CRITERIA3 TEXT, "
                 + "CUSTOM TEXT, "
-                + "CUSTOM_RATE TEXT);");
+                + "CUSTOM_RATE TEXT, "
+                + "IMAGE TEXT);");
     }
 
     // add an experience to database (inner logic)
-    private static void add(SQLiteDatabase db, String NAME, String LOCATION, String CATEGORY, String PRICE, String TOTAL_BILL, String TIP_PERCENTAGE, String TIME, String CRITERIA1, String CRITERIA2, String CRITERIA3, String CUSTOM, String CUSTOM_RATE){
+    private static void add(SQLiteDatabase db, String NAME, String LOCATION, String CATEGORY, String PRICE, String TOTAL_BILL, String TIP_PERCENTAGE, String TIME, String CRITERIA1, String CRITERIA2, String CRITERIA3, String CUSTOM, String CUSTOM_RATE, String IMAGE){
         ContentValues experience = new ContentValues();
         experience.put("NAME", NAME);
         experience.put("LOCATION", LOCATION);
@@ -61,6 +63,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         experience.put("CRITERIA3", CRITERIA3);
         experience.put("CUSTOM", CUSTOM);
         experience.put("CUSTOM_RATE", CUSTOM_RATE);
+        experience.put("IMAGE", IMAGE);
         db.insert(DB_NAME, null, experience);
         System.out.println("Record Written");
     }
@@ -71,7 +74,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         boolean firstData = true;
         try {
             Cursor cursor = db.query (DB_NAME,
-                    new String[] {"NAME", "LOCATION", "CATEGORY","PRICE", "TOTAL_BILL", "TIP_PERCENTAGE", "TIME", "CRITERIA1", "CRITERIA2", "CRITERIA3", "CUSTOM", "CUSTOM_RATE"},
+                    new String[] {"NAME", "LOCATION", "CATEGORY","PRICE", "TOTAL_BILL", "TIP_PERCENTAGE", "TIME", "CRITERIA1", "CRITERIA2", "CRITERIA3", "CUSTOM", "CUSTOM_RATE", "IMAGE"},
                     null,
                     null,
                     null, null, null);
@@ -91,7 +94,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                     String CRITERIA3 = cursor.getString(9);
                     String CUSTOM = cursor.getString(10);
                     String CUSTOM_RATE = cursor.getString(11);
-                    experiences.add(new Experience(NAME, LOCATION, CATEGORY, PRICE, TOTAL_BILL, TIP_PERCENTAGE, TIME, CRITERIA1, CRITERIA2, CRITERIA3, CUSTOM, CUSTOM_RATE));
+                    String IMAGE = cursor.getString(12);
+                    experiences.add(new Experience(NAME, LOCATION, CATEGORY, PRICE, TOTAL_BILL, TIP_PERCENTAGE, TIME, CRITERIA1, CRITERIA2, CRITERIA3, CUSTOM, CUSTOM_RATE, IMAGE));
                     firstData = false;
                 }
             }
@@ -102,11 +106,11 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     }
 
     // API: add an experience to database
-    public static void addExperience(Context context, String NAME, String LOCATION, String CATEGORY, String PRICE, String TOTAL_BILL, String TIP_PERCENTAGE, String TIME, String CRITERIA1, String CRITERIA2, String CRITERIA3, String CUSTOM, String CUSTOM_RATE){
+    public static void addExperience(Context context, String NAME, String LOCATION, String CATEGORY, String PRICE, String TOTAL_BILL, String TIP_PERCENTAGE, String TIME, String CRITERIA1, String CRITERIA2, String CRITERIA3, String CUSTOM, String CUSTOM_RATE, String IMAGE){
         SQLiteOpenHelper dataBaseHelper = new DataBaseHelper(context);
         SQLiteDatabase db = dataBaseHelper.getWritableDatabase();
         try {
-            DataBaseHelper.add(db, NAME, LOCATION, CATEGORY, PRICE, TOTAL_BILL, TIP_PERCENTAGE, TIME, CRITERIA1, CRITERIA2, CRITERIA3, CUSTOM, CUSTOM_RATE);
+            DataBaseHelper.add(db, NAME, LOCATION, CATEGORY, PRICE, TOTAL_BILL, TIP_PERCENTAGE, TIME, CRITERIA1, CRITERIA2, CRITERIA3, CUSTOM, CUSTOM_RATE, IMAGE);
         } catch (SQLiteException e) {
             Toast toast = Toast.makeText(context, "Database unavailable", Toast.LENGTH_SHORT);
             toast.show();
@@ -141,7 +145,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     }
 
     public static void testAdd2Experience(Context context){
-        addExperience(context, "BCD", "Irvine", "Korean", "$$", "25$", "15%", "30:00", "-1%", "0%", "+1%", "Good Restroom#Not enough fish cake  ", "+1%#-1%");
-        addExperience(context, "HaiDiLao", "Irvine", "Chinese", "$$$", "100$", "15%", "50:00", "-1%", "0%", "+1%", "Good restroom#Good sneak", "+1%#+1%");
+        addExperience(context, "BCD", "Irvine", "Korean", "$$", "25$", "15%", "30:00", "-1%", "0%", "+1%", "Good Restroom#Not enough fish cake  ", "+1%#-1%", "http://i.imgur.com/DvpvklR.png");
+        addExperience(context, "HaiDiLao", "Irvine", "Chinese", "$$$", "100$", "15%", "50:00", "-1%", "0%", "+1%", "Good restroom#Good sneak", "+1%#+1%", "http://i.imgur.com/DvpvklR.png");
     }
 }

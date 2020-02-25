@@ -18,9 +18,10 @@ public class Experience {
     private String CRITERIA2;
     private String CRITERIA3;
     private String CUSTOM;
-     private String CUSTOM_RATE;
+    private String CUSTOM_RATE;
+    private String IMAGE;
 
-    public Experience(String NAME, String LOCATION, String CATEGORY, String PRICE, String TOTAL_BILL, String TIP_PERCENTAGE, String TIME, String CRITERIA1, String CRITERIA2, String CRITERIA3, String CUSTOM, String CUSTOM_RATE){
+    public Experience(String NAME, String LOCATION, String CATEGORY, String PRICE, String TOTAL_BILL, String TIP_PERCENTAGE, String TIME, String CRITERIA1, String CRITERIA2, String CRITERIA3, String CUSTOM, String CUSTOM_RATE, String IMAGE){
         this.NAME = NAME;
         this.LOCATION = LOCATION;
         this.CATEGORY = CATEGORY;
@@ -33,6 +34,7 @@ public class Experience {
         this.CRITERIA3 = CRITERIA3;
         this.CUSTOM = CUSTOM;
         this.CUSTOM_RATE = CUSTOM_RATE;
+        this.IMAGE = IMAGE;
     }
 
      public String getName() {
@@ -78,4 +80,6 @@ public class Experience {
      }
 
      public String getCUSTOM_RATE() {return CUSTOM_RATE;}
+
+     public String getImage() {return IMAGE;}
  }

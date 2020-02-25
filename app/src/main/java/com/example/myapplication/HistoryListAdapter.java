@@ -9,6 +9,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 /**************************************************************************************************
  *              Adapter class for ViewHistoryActivity.java
@@ -18,6 +20,7 @@ public class HistoryListAdapter extends RecyclerView.Adapter<HistoryListAdapter.
     public HistoryListAdapter(List<Experience> experiences) { this.experiences = experiences; }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
+        ImageView ivRestaurant;
         TextView tvName;
         TextView tvLocation;
         TextView tvCategory;
@@ -34,6 +37,7 @@ public class HistoryListAdapter extends RecyclerView.Adapter<HistoryListAdapter.
 
         ViewHolder(View itemView) {
             super(itemView);
+            ivRestaurant = itemView.findViewById(R.id.ivRestaurant);
             tvName = itemView.findViewById(R.id.tvName);
             tvLocation = itemView.findViewById(R.id.tvLocation);
             tvCategory = itemView.findViewById(R.id.tvCategory);
@@ -83,7 +87,7 @@ public class HistoryListAdapter extends RecyclerView.Adapter<HistoryListAdapter.
         }
         String custom = customBuilder.toString();
         holder.tvCustom.setText(custom);
-        // Picasso.get().load(IMAGE_URL+ experience.getPosterPath()).into(holder.ivMovie);
+        Picasso.get().load(experience.getImage()).into(holder.ivRestaurant);
     }
 
 

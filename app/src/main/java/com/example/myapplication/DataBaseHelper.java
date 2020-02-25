@@ -145,7 +145,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     }
 
     public static void testAdd2Experience(Context context){
-        addExperience(context, "BCD", "Irvine", "Korean", "$$", "25$", "15%", "30:00", "-1%", "0%", "+1%", "Good Restroom#Not enough fish cake  ", "+1%#-1%", "http://i.imgur.com/DvpvklR.png");
-        addExperience(context, "HaiDiLao", "Irvine", "Chinese", "$$$", "100$", "15%", "50:00", "-1%", "0%", "+1%", "Good restroom#Good sneak", "+1%#+1%", "http://i.imgur.com/DvpvklR.png");
+        addExperience(context, "BCD", "Irvine", "Korean", "$$", "25$", "15%", "30:00", "-1%", "0%", "+1%", "Good Restroom#Not enough fish cake  ", "+1%#-1%", "https://i.imgur.com/DvpvklR.png");
+        addExperience(context, "HaiDiLao", "Irvine", "Chinese", "$$$", "100$", "15%", "50:00", "-1%", "0%", "+1%", "Good restroom#Good sneak", "+1%#+1%", "https://i.imgur.com/DvpvklR.png");
     }
 }

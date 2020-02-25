@@ -84,15 +84,19 @@ public class TipResultActivity extends AppCompatActivity {
 
                 // submit to tip result activity
                 Intent intent = new Intent(getApplicationContext(), SplitBillActivity.class);
+                startActivity(intent);
+
+                Intent newIntent = new Intent(getApplicationContext(), ViewHistoryActivity.class);
+
                 // Create bundle containing data from previous activity
                 Bundle bundle = getIntent().getExtras();
                 // putExtra review data to pass to next intent
                 if (bundle != null) {
-                    intent.putExtras(bundle);
-                    intent.putExtra("TOTAL_BILL", yourTotal.getText());
-                    intent.putExtra("TIP_PERCENTAGE", tipPercentage.getText());
+                    newIntent.putExtras(bundle);
+                    newIntent.putExtra("TOTAL_BILL", yourTotal.getText());
+                    newIntent.putExtra("TIP_PERCENTAGE", tipPercentage.getText());
                 }
-                startActivity(intent);
+                startActivity(newIntent);
 
                 System.out.println(yourTotal.getText() + " " + tipPercentage.getText());
             }

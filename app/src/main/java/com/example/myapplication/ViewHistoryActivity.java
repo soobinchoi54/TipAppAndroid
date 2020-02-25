@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
@@ -53,6 +54,17 @@ public class ViewHistoryActivity extends AppCompatActivity {
     public void onClickTest(View view) {
         DataBaseHelper.testAdd2Experience(this);
         fetchData();
+    }
+
+    @Override
+    public void onBackPressed(){
+        // go back to main menu to prevent data overwriting
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void onClickHome(View view) {
+        onBackPressed();
     }
 }
 

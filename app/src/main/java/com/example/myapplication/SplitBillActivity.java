@@ -73,4 +73,15 @@ public class SplitBillActivity extends AppCompatActivity {
         startActivity(chosenIntent);
     }
 
+    public void onClickGoBack(View view) {
+        onBackPressed();
+    }
+
+    public void onClickComplete(View view) {
+        Toast.makeText(SplitBillActivity.this,"Experience Completed!",Toast.LENGTH_SHORT).show();
+
+        // submit to tip result activity
+        Intent intent = new Intent(getApplicationContext(), ViewHistoryActivity.class);
+        startActivity(intent);
+    }
 }

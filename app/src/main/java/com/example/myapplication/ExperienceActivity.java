@@ -111,24 +111,6 @@ public class ExperienceActivity extends AppCompatActivity implements AdapterView
                 // get the value of selected answers from custom adapter
                 for (int i = 0; i < CustomAdapter.selectedAnswers.size(); i++) {
                     message = message + "\n" + (i + 1) + " " + CustomAdapter.selectedAnswers.get(i);
-
-                    switch (CustomAdapter.selectedAnswers.get(i).toString()) {
-                        case "-0.02":
-                            resultData.append("-2%#");
-                            break;
-                        case "-0.01":
-                            resultData.append("-1%#");
-                            break;
-                        case "0.0":
-                            resultData.append("0%#");
-                            break;
-                        case "0.01":
-                            resultData.append("+1%#");
-                            break;
-                        case "0.02":
-                            resultData.append("+2%#");
-                            break;
-                    }
                 }
                 // display the message on screen with the help of Toast.
                 Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();

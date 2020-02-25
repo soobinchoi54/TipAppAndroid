@@ -12,6 +12,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -24,7 +25,7 @@ import java.util.List;
 public class ViewHistoryActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-
+    private RelativeLayout buttons;
     private HistoryListAdapter adapter;
     private List<Experience> experiences;
 
@@ -39,6 +40,13 @@ public class ViewHistoryActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        buttons = findViewById(R.id.buttons);
+        buttons.bringToFront();
     }
 
     private void fetchData(){

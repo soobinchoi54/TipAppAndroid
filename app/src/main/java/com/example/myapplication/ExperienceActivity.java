@@ -9,17 +9,15 @@ import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.RadioGroup;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static java.lang.Math.floor;
 
@@ -36,8 +34,10 @@ import static java.lang.Math.floor;
 
 public class ExperienceActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    private Spinner spinner;
-    private RadioGroup radioGroup;
+    private ListView criteriaList;
+
+    private String[] criteria;
+
     private Button submitButton;
 
     private static float tipPercentage;
@@ -77,95 +77,46 @@ public class ExperienceActivity extends AppCompatActivity implements AdapterView
         bindService(timeServiceIntent, connection, Context.BIND_AUTO_CREATE);
 
         /*
-         * CREATE SPINNER ELEMENT
+         * CREATE CRITERIA LIST VIEW
          */
-        // add spinner element
-        spinner = findViewById(R.id.spinner_criteria_1);
 
-        // add spinner onItemSelected listener
-        spinner.setOnItemSelectedListener(this);
+        // get the string array from string.xml file
+        criteria = getResources().getStringArray(R.array.criteria);
 
-        // add spinner dropdown elements
-        List<String> criteria = new ArrayList<>();
-        criteria.add("Service");
-        criteria.add("Food Quality");
-        criteria.add("Timeliness");
+        // get the reference of ListView and Button
+        criteriaList = (ListView) findViewById(R.id.criteria_list);
+        submitButton = (Button) findViewById(R.id.submit_button);
 
-        // add spinner adapter
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, criteria);
+        // set custom adapter to fill data with ListView
 
-        // add spinner dropdown layout style
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        // attach data adapter to spinner
-        spinner.setAdapter(dataAdapter);
-
-        /*
-         * CREATE RADIO BUTTON ELEMENT
-         */
-        // add radio group element
-        radioGroup= findViewById(R.id.radio_group_rate);
-
-        // add onClickedChange listener
-        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-
-                // set starting tip percentage
-                tipPercentage = 0.15f;
-
-                switch (checkedId) {
-                    case R.id.rate_poor:
-                        // -2%
-                        tipPercentage -= 0.02f;
-                        // Showing selected spinner item
-                        Toast.makeText(ExperienceActivity.this, "Tip Percentage: " + floor(tipPercentage*100), Toast.LENGTH_LONG).show();
-                        break;
-                    case R.id.rate_meh:
-                        // -1%
-                        tipPercentage -= 0.01f;
-                        // Showing selected spinner item
-                        Toast.makeText(ExperienceActivity.this, "Tip Percentage: " + floor(tipPercentage*100), Toast.LENGTH_LONG).show();
-                        break;
-                    case R.id.rate_ok:
-                        // 0%
-                        tipPercentage -= 0.00f;
-                        // Showing selected spinner item
-                        Toast.makeText(ExperienceActivity.this, "Tip Percentage: " + floor(tipPercentage*100), Toast.LENGTH_LONG).show();
-                        break;
-                    case R.id.rate_good:
-                        // +1%
-                        tipPercentage += 0.01f;
-                        // Showing selected spinner item
-                        Toast.makeText(ExperienceActivity.this, "Tip Percentage: " + floor(tipPercentage*100), Toast.LENGTH_LONG).show();
-                        break;
-                    case R.id.rate_great:
-                        // +2%
-                        tipPercentage += 0.02;
-                        // Showing selected spinner item
-                        Toast.makeText(ExperienceActivity.this, "Tip Percentage: " + floor(tipPercentage*100), Toast.LENGTH_LONG).show();
-                        break;
-                }
-            }
-        });
+        CustomAdapter customAdapter = new CustomAdapter(getApplicationContext(), criteria);
+        criteriaList.setAdapter(customAdapter);
 
         /*
          * CREATE SUBMIT BUTTON ELEMENT
          */
-        // add submit button element
-        submitButton = findViewById(R.id.submit_button);
 
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(ExperienceActivity.this,"You're Tipping: " + floor(tipPercentage*100) + " %",Toast.LENGTH_SHORT).show();
+                tipPercentage = 0.15f;
+                for (int i = 0; i < CustomAdapter.selectedAnswers.size(); i++) {
+                    tipPercentage += CustomAdapter.selectedAnswers.get(i);
+                }
+
+                String message = "";
+                // get the value of selected answers from custom adapter
+                for (int i = 0; i < CustomAdapter.selectedAnswers.size(); i++) {
+                    message = message + "\n" + (i + 1) + " " + CustomAdapter.selectedAnswers.get(i);
+                }
+                // display the message on screen with the help of Toast.
+                Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
+
                 //TIMER_SERVICE : stop time when we go to TipResultActivity ~ will stop timer
                 running = false;
                 // submit to tip result activity
                 Intent intent = new Intent(getApplicationContext(), TipResultActivity.class);
                 startActivity(intent);
-
 
             }
         });

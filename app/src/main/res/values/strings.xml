@@ -14,4 +14,19 @@
     <string name="split_bill">Split Your Bill</string>
     <string name="receive_message">Split With Your Friends</string>
     <string name="chooser">Send message via...</string>
+    <string name="criteria_heading">REVIEW CRITERIA</string>
+
+    <string name="poor">Poor</string>
+    <string name="meh">Meh</string>
+    <string name="ok">Ok</string>
+    <string name="good">Good</string>
+    <string name="great">Great</string>
+
+    <string-array name="criteria">
+        <item>Service</item>
+        <item>Timeliness</item>
+        <item>Food</item>
+        <item>Cleanliness</item>
+    </string-array>
+
 </resources>

@@ -160,6 +160,21 @@ public class RestaurantChooserActivity extends AppCompatActivity implements Loca
         // TEMP
         Intent intent = new Intent(this, ExperienceActivity.class);
         startActivity(intent);
+
+        // Create a bundle object
+        Bundle extras = new Bundle();
+
+        // Attach key value pair using putExtra to this intent
+        // Temporarily hard coding restaurant information since selected restaurant functionality hasn't been implemented yet
+        String restaurant_name = "BCD Tofu House";
+        String restaurant_address = "Alton Parkway #135, Irvine, CA";
+        String restaurant_price = "$$";
+
+        extras.putString("NAME", restaurant_name);
+        extras.putString("LOCATION", restaurant_address);
+        extras.putString("PRICE", restaurant_price);
+
+        intent.putExtras(extras);
     }
 
     public void refreshLocation(View view){

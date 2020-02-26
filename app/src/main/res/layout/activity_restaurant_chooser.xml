@@ -19,7 +19,6 @@
             android:layout_gravity="center_vertical"
             android:text="@string/new_experience"
             android:layout_alignParentBottom="true"
-            android:layout_marginTop="200dp"
             android:layout_marginLeft="100dp"
             android:layout_marginRight="100dp"
             android:onClick="startExperience"/>
@@ -28,10 +27,20 @@
             android:id="@+id/refreshButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Refresh Location"
+            android:layout_above="@+id/tvRestaurantChosen"
 
-            android:layout_above="@+id/newExperienceButton"
-            android:onClick="refreshLocation"/>
+            android:onClick="refreshLocation"
+            android:text="Refresh Location" />
+
+        <TextView
+            android:id="@+id/tvRestaurantChosen"
+
+            android:layout_marginBottom="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Restaurant Selected: "
+            android:textSize="15dp"
+            android:layout_above="@id/newExperienceButton"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvRestaurantList"

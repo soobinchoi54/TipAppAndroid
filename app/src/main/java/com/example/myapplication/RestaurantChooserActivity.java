@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -15,6 +16,8 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
+
 import java.util.List;
 
 import retrofit2.Call;
@@ -23,7 +26,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class RestaurantChooserActivity extends AppCompatActivity implements LocationListener{
+public class RestaurantChooserActivity extends AppCompatActivity implements LocationListener, RowClickListener{
 
 
     static final String TAG = MainActivity.class.getSimpleName();
@@ -36,6 +39,13 @@ public class RestaurantChooserActivity extends AppCompatActivity implements Loca
     private LocationManager locationManager;
     private Location location;
     int TAG_CODE_PERMISSION_LOCATION;
+    private TextView restaurantChosenTextView;
+
+    private String chosenRestaurantURL;
+    private String chosenRestaurantName;
+    private String chosenRestaurantAddress;
+    private String chosenRestaurantCategories;
+    private String chosenRestaurantPrice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +76,7 @@ public class RestaurantChooserActivity extends AppCompatActivity implements Loca
         RestaurantApiService restaurantApiService = retrofit.create(RestaurantApiService.class);
         //get location to update api service
         //33.6405 | 117.8443  , 37.80587 | -122.42058
+        //radius is in meters 17000 meters ~ 10 miles can adjust as needed
         Call<RestaurantList> call = restaurantApiService.getRestaurantList(AUTHORIZATION, latitude, longitude, 17000);
         call.enqueue(new Callback<RestaurantList>() {
             @Override
@@ -76,8 +87,10 @@ public class RestaurantChooserActivity extends AppCompatActivity implements Loca
                 recyclerView = findViewById(R.id.rvRestaurantList);
                 recyclerView.setHasFixedSize(true);
                 recyclerView.setLayoutManager(new LinearLayoutManager(RestaurantChooserActivity.this));
-                recyclerView.setAdapter(new RestaurantListAdapter(restaurantList));
+                recyclerView.setAdapter(new RestaurantListAdapter(restaurantList, RestaurantChooserActivity.this));
+                recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));
                 System.out.println("FOUND DATA!");
+                System.out.println(RestaurantChooserActivity.this.toString());
             }
             @Override
             public void onFailure(Call<RestaurantList> call, Throwable throwable) {
@@ -100,15 +113,12 @@ public class RestaurantChooserActivity extends AppCompatActivity implements Loca
 
             if (location != null) {
                 Log.e("TAG", "GPS is on");
-                /*latitude = location.getLatitude();
-                longitude = location.getLongitude();*/
                 latitude = location.getLatitude();
                 longitude = location.getLongitude();
 
 
             }
             else{
-                //This is what you need:
                 locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 0, this);
             }
         }
@@ -159,6 +169,20 @@ public class RestaurantChooserActivity extends AppCompatActivity implements Loca
     public void startExperience(View view){
         // TEMP
         Intent intent = new Intent(this, ExperienceActivity.class);
+        // Create a bundle object
+        Bundle extras = new Bundle();
+
+        // Attach key value pair using putExtra to this intent
+
+        extras.putString("URL", chosenRestaurantURL);
+        extras.putString("NAME", chosenRestaurantName);
+        extras.putString("LOCATION", chosenRestaurantAddress);
+        extras.putString("CATEGORY", chosenRestaurantCategories);
+        extras.putString("PRICE", chosenRestaurantPrice);
+
+        intent.putExtras(extras);
+
+        //Start ExperienceActivity
         startActivity(intent);
 
         // Create a bundle object
@@ -180,7 +204,28 @@ public class RestaurantChooserActivity extends AppCompatActivity implements Loca
     }
 
     public void refreshLocation(View view){
-        //getLocation();
+        getLocation();
         showRestaurantList();
+    }
+
+    @Override
+    public void onClick(View view, int i, String imageUrl, String name, String address, String categories, String price) {
+        //System.out.println(i);
+        restaurantChosenTextView = findViewById(R.id.tvRestaurantChosen);
+        restaurantChosenTextView.setText("Restaurant Selected:\n\n" + name + "\n" + address + "\n" + categories);
+        chosenRestaurantURL = imageUrl;
+        chosenRestaurantName = name;
+        chosenRestaurantAddress = address;
+        chosenRestaurantCategories = categories;
+        chosenRestaurantPrice = price;
+
+        //test information selected
+        /*System.out.println("URL: " + chosenRestaurantURL);
+        System.out.println("Name: " + chosenRestaurantName);
+        System.out.println("Address: " + chosenRestaurantAddress);
+        System.out.println("Categories: " + chosenRestaurantCategories);
+        System.out.println("Price: " + chosenRestaurantPrice);*/
+
+
     }
 }

@@ -8,28 +8,39 @@ import com.google.gson.annotations.SerializedName;
 public class Restaurant {
     @SerializedName("name")
     private String name;
+    @SerializedName("image_url")
+    private String imageURL;
     @SerializedName("location")
     private JsonObject location;
-    @SerializedName("coordinates.latitude")
-    private Float latitude;
-    @SerializedName("coordinates.longitude")
-    private Float longitude;
+    @SerializedName("categories")
+    private JsonArray categories;
     @SerializedName("price")
     private String price;
 
-    public Restaurant(String name, JsonObject location, Float latitude, Float longitude, String price){
+    /*@SerializedName("coordinates.latitude")
+    private Float latitude;
+    @SerializedName("coordinates.longitude")
+    private Float longitude;*/
+
+    public Restaurant(String name, String imageURL, JsonObject location, JsonArray categories,/*Float latitude, Float longitude,*/ String price){
         this.name = name;
+        this.imageURL = imageURL;
         this.location = location;
-        this.latitude = latitude;
-        this.longitude = longitude;
+        this.categories = categories;
         this.price = price;
+
+        /*this.latitude = latitude;
+        this.longitude = longitude;*/
     }
 
     public String getName(){return name;}
+
+    public String getImageURL(){return imageURL;}
+
     public String getAddress(){
 
         //Convert JsonObject to get particular array, then get information from that array
-        JsonArray address = new JsonArray();
+        JsonArray address;
         address = this.location.getAsJsonArray("display_address");
         String result = "";
         for(JsonElement s : address){
@@ -37,7 +48,23 @@ public class Restaurant {
         }
         result = result.replace("\"", "");
         return result;}
-    public Float getLatitude(){return latitude;}
-    public Float getLongitude(){return longitude;}
+
+    public String getCategories(){
+
+        String result = "";
+        for(JsonElement s : categories){
+            JsonObject currentObject = s.getAsJsonObject();
+            result += currentObject.get("title") + " | ";
+            //System.out.println("Current result: " + result);
+
+        }
+        result = result.replace("\"", "");
+        result = result.substring(0, result.length() - 2);
+        return result;}
+
+
     public String getPrice(){return price;}
+
+    /*public Float getLatitude(){return latitude;}
+    public Float getLongitude(){return longitude;}*/
 }

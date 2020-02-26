@@ -94,6 +94,18 @@ public class TipResultActivity extends AppCompatActivity {
                 }
                 startActivity(intent);
 
+                Intent newIntent = new Intent(getApplicationContext(), ViewHistoryActivity.class);
+
+                // Create bundle containing data from previous activity
+                Bundle bundle1 = getIntent().getExtras();
+                // putExtra review data to pass to next intent
+                if (bundle1 != null) {
+                    newIntent.putExtras(bundle1);
+                    newIntent.putExtra("TOTAL_BILL", yourTotal.getText());
+                    newIntent.putExtra("TIP_PERCENTAGE", tipPercentage.getText());
+                }
+                startActivity(newIntent);
+
                 System.out.println(yourTotal.getText() + " " + tipPercentage.getText());
             }
         });
@@ -108,10 +120,10 @@ public class TipResultActivity extends AppCompatActivity {
                 // submit to tip result activity
                 Intent intent = new Intent(getApplicationContext(), ViewHistoryActivity.class);
                 // Create bundle containing data from previous activity
-                Bundle bundle = getIntent().getExtras();
+                Bundle bundle2 = getIntent().getExtras();
                 // putExtra review data to pass to next intent
-                if (bundle != null) {
-                    intent.putExtras(bundle);
+                if (bundle2 != null) {
+                    intent.putExtras(bundle2);
                     intent.putExtra("TOTAL_BILL", yourTotal.getText());
                     intent.putExtra("TIP_PERCENTAGE", tipPercentage.getText());
                 }

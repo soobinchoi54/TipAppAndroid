@@ -174,7 +174,7 @@ public class RestaurantChooserActivity extends AppCompatActivity implements Loca
 
         // Attach key value pair using putExtra to this intent
 
-        extras.putString("URL", chosenRestaurantURL);
+        extras.putString("IMAGE TEXT", chosenRestaurantURL);
         extras.putString("NAME", chosenRestaurantName);
         extras.putString("LOCATION", chosenRestaurantAddress);
         extras.putString("CATEGORY", chosenRestaurantCategories);

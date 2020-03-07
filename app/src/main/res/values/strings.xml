@@ -1,9 +1,14 @@
 <resources>
 
+    <!--    Marc-->
+    <string name="new_experience">Start Experience</string>
+    <string name="new_restaurant_info">Enter New Restaurant</string>
+    <string name="restaurant_selected">Restaurant Selected: </string>
+    <string name="refresh_list">Refresh List</string>
+
     <!--    Duo-->
     <string name="main_acitivity">Tips App</string>
     <string name="ViewHistory_activity">View History</string>
-    <string name="new_experience">Start New Experience</string>
     <string name="history_list">View My History List</string>
     <string name="deleteTable">Delete All Data</string>
     <string name="restaurant_chooser">Pick A Restaurant</string>
@@ -15,6 +20,8 @@
     <string name="receive_message">Split With Your Friends</string>
     <string name="chooser">Send message via...</string>
     <string name="criteria_heading">REVIEW CRITERIA</string>
+    <string name="notify_user_title">Update Experience?</string>
+    <string name="notify_user_text">Would you like to update your current experience?</string>
 
     <string name="poor">Poor</string>
     <string name="meh">Meh</string>

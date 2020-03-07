@@ -17,6 +17,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -167,23 +168,31 @@ public class RestaurantChooserActivity extends AppCompatActivity implements Loca
 
     //Moves to our current experience activity
     public void startExperience(View view){
-        // TEMP
-        Intent intent = new Intent(this, ExperienceActivity.class);
-        // Create a bundle object
-        Bundle extras = new Bundle();
 
-        // Attach key value pair using putExtra to this intent
+        if(chosenRestaurantName == null){
+            Toast.makeText(getApplicationContext(), "Please select a restaurant",
+                    Toast.LENGTH_SHORT).show();
+        }
+        else{
 
-        extras.putString("URL", chosenRestaurantURL);
-        extras.putString("NAME", chosenRestaurantName);
-        extras.putString("LOCATION", chosenRestaurantAddress);
-        extras.putString("CATEGORY", chosenRestaurantCategories);
-        extras.putString("PRICE", chosenRestaurantPrice);
+            Intent intent = new Intent(this, ExperienceActivity.class);
+            // Create a bundle object
+            Bundle extras = new Bundle();
 
-        intent.putExtras(extras);
+            // Attach key value pair using putExtra to this intent
 
-        //Start ExperienceActivity
-        startActivity(intent);
+            extras.putString("IMAGE TEXT", chosenRestaurantURL);
+            extras.putString("NAME", chosenRestaurantName);
+            extras.putString("LOCATION", chosenRestaurantAddress);
+            extras.putString("CATEGORY", chosenRestaurantCategories);
+            extras.putString("PRICE", chosenRestaurantPrice);
+
+            intent.putExtras(extras);
+
+            //Start ExperienceActivity
+            startActivity(intent);
+        }
+
     }
 
     public void refreshLocation(View view){
@@ -210,5 +219,13 @@ public class RestaurantChooserActivity extends AppCompatActivity implements Loca
         System.out.println("Price: " + chosenRestaurantPrice);*/
 
 
+    }
+
+    public void enterNewRestaurant(View view) {
+        //intent to NewRestaurantActivity
+        Intent intent = new Intent(this, NewRestaurantActivity.class);
+
+        //Start NewRestaurantActivity
+        startActivity(intent);
     }
 }

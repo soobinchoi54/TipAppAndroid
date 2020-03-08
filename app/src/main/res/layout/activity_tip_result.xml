@@ -51,7 +51,8 @@
             android:layout_alignBaseline="@id/bill_total_tv"
             android:layout_toRightOf="@id/dollar_sign"
             android:hint="Enter total amount here"
-            android:background="@drawable/edit_text_box" />
+            android:background="@drawable/edit_text_box"
+            android:textCursorDrawable="@drawable/cursor_color"/>
 
         <TextView
             android:id="@+id/tip_percentage_tv"

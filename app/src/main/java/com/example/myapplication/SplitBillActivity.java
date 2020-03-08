@@ -14,6 +14,9 @@ import android.widget.Toast;
 
 import java.text.DecimalFormat;
 
+import com.example.myapplication.model.Experience;
+import com.example.myapplication.database.DataBaseHelper;
+
 /************************************************************************************************
  * The SplitBillActivity class provides users an option to split the bill and send messages to
  * their party if they want. User will input party size and the app will return the amount that

@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.util;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,6 +11,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+
+import com.example.myapplication.R;
 
 public class CustomAdapter extends BaseAdapter {
 

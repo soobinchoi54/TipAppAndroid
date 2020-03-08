@@ -153,7 +153,7 @@ public class CustomAdapter extends BaseAdapter {
             System.out.println("FILE NOT FOUND");
         }
         if (question.getText().equals("Food")) {
-            ivCriteria.setImageDrawable(ivCriteria.getResources().getDrawable(R.drawable.service));
+            ivCriteria.setImageDrawable(ivCriteria.getResources().getDrawable(R.drawable.food));
         } else {
             System.out.println("FILE NOT FOUND");
         }

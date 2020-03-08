@@ -210,7 +210,7 @@ public class ExperienceActivity extends AppCompatActivity implements AdapterView
                     //Print method to show seconds on timer
                     //Can use these seconds to send in intent to our calculation in TipResultActivity
                     System.out.println("Total seconds to use for calculation: " + timer.getSeconds());
-                    timeView.setText("Current length of experience: " + time);
+                    timeView.setText(time);
                     timeSpent = time;
                 }
                 handler.postDelayed(this, 1000);

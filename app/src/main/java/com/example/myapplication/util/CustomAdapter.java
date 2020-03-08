@@ -1,6 +1,7 @@
 package com.example.myapplication.util;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,8 @@ import android.widget.CompoundButton;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.ColorInt;
 
 import java.util.ArrayList;
 
@@ -65,8 +68,13 @@ public class CustomAdapter extends BaseAdapter {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 // set Poor values in ArrayList if RadioButton is checked
-                if (isChecked)
+                if (isChecked) {
                     selectedAnswers.set(i,-0.02f);
+                    poor.setTextColor(Color.WHITE);
+                } else {
+                    poor.setTextColor(Color.parseColor("#9999ff"));
+                }
+
             }
         });
 
@@ -75,8 +83,12 @@ public class CustomAdapter extends BaseAdapter {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 // set Poor values in ArrayList if RadioButton is checked
-                if (isChecked)
-                    selectedAnswers.set(i, -0.01f);
+                if (isChecked) {
+                    selectedAnswers.set(i,-0.01f);
+                    meh.setTextColor(Color.WHITE);
+                } else {
+                    meh.setTextColor(Color.parseColor("#9999ff"));
+                }
             }
         });
 
@@ -85,8 +97,12 @@ public class CustomAdapter extends BaseAdapter {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 // set Poor values in ArrayList if RadioButton is checked
-                if (isChecked)
-                    selectedAnswers.set(i, 0.0f);
+                if (isChecked) {
+                    selectedAnswers.set(i,0.00f);
+                    ok.setTextColor(Color.WHITE);
+                } else {
+                    ok.setTextColor(Color.parseColor("#9999ff"));
+                }
             }
         });
 
@@ -95,8 +111,12 @@ public class CustomAdapter extends BaseAdapter {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 // set Poor values in ArrayList if RadioButton is checked
-                if (isChecked)
-                    selectedAnswers.set(i, +0.01f);
+                if (isChecked) {
+                    selectedAnswers.set(i,+0.01f);
+                    good.setTextColor(Color.WHITE);
+                } else {
+                    good.setTextColor(Color.parseColor("#9999ff"));
+                }
             }
         });
 
@@ -105,8 +125,12 @@ public class CustomAdapter extends BaseAdapter {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 // set Poor values in ArrayList if RadioButton is checked
-                if (isChecked)
-                    selectedAnswers.set(i, +0.02f);
+                if (isChecked) {
+                    selectedAnswers.set(i,+0.02f);
+                    great.setTextColor(Color.WHITE);
+                } else {
+                    great.setTextColor(Color.parseColor("#9999ff"));
+                }
             }
         });
 

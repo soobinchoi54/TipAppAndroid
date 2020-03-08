@@ -1,51 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp">
 
-    <TextView
-        android:id="@+id/preset_criteria"
+    <ImageView
+        android:id="@+id/criteria_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textSize="20dp"
-        android:textColor="#581845"/>
+        android:layout_alignParentLeft="true"/>
 
-    <RadioGroup
-        android:id="@+id/radio_group_rate"
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <RadioButton
-            android:id="@+id/rate_poor"
+        android:layout_toRightOf="@id/criteria_image">
+        <TextView
+            android:id="@+id/preset_criteria"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/poor"/>
-        <RadioButton
-            android:id="@+id/rate_meh"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/meh"/>
-        <RadioButton
-            android:id="@+id/rate_ok"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/ok"/>
-        <RadioButton
-            android:id="@+id/rate_good"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/good"/>
-        <RadioButton
-            android:id="@+id/rate_great"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/great"/>
-    </RadioGroup>
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:textSize="8pt"
+            android:textColor="#9999FF"
+            android:textStyle="bold"/>
 
-</LinearLayout>
+        <RadioGroup
+            android:id="@+id/radio_group_rate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="5dp"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/rate_poor"
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/rb_button"
+                android:button="@android:color/transparent"
+                android:buttonTint="#9999FF"
+                android:textAlignment="center"
+                android:textColor="#9999FF"
+                android:text="@string/poor"/>
+            <RadioButton
+                android:id="@+id/rate_meh"
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/rb_button"
+                android:button="@android:color/transparent"
+                android:buttonTint="#9999FF"
+                android:textAlignment="center"
+                android:textColor="#9999FF"
+                android:text="@string/meh"/>
+            <RadioButton
+                android:id="@+id/rate_ok"
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/rb_button"
+                android:button="@android:color/transparent"
+                android:buttonTint="#9999FF"
+                android:textAlignment="center"
+                android:textColor="#9999FF"
+                android:text="@string/ok"/>
+            <RadioButton
+                android:id="@+id/rate_good"
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/rb_button"
+                android:button="@android:color/transparent"
+                android:buttonTint="#9999FF"
+                android:textAlignment="center"
+                android:textColor="#9999FF"
+                android:text="@string/good"/>
+            <RadioButton
+                android:id="@+id/rate_great"
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/rb_button"
+                android:button="@android:color/transparent"
+                android:buttonTint="#9999FF"
+                android:textAlignment="center"
+                android:textColor="#9999FF"
+                android:text="@string/great"/>
+        </RadioGroup>
+    </RelativeLayout>
+</RelativeLayout>

@@ -14,6 +14,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -113,8 +114,6 @@ public class ExperienceActivity extends AppCompatActivity implements AdapterView
                 for (int i = 0; i < CustomAdapter.selectedAnswers.size(); i++) {
                     message = message + "\n" + (i + 1) + " " + CustomAdapter.selectedAnswers.get(i);
                 }
-                // display the message on screen with the help of Toast.
-                Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
 
                 //TIMER_SERVICE : stop time when we go to TipResultActivity ~ will stop timer
                 running = false;
@@ -182,8 +181,6 @@ public class ExperienceActivity extends AppCompatActivity implements AdapterView
         // On selecting a spinner item
         String item = parent.getItemAtPosition(position).toString();
 
-        // Showing selected spinner item
-        Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
     }
 
     @Override

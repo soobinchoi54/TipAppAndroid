@@ -1,12 +1,15 @@
 package com.example.myapplication.util;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,6 +19,7 @@ import androidx.annotation.ColorInt;
 import java.util.ArrayList;
 
 import com.example.myapplication.R;
+import com.squareup.picasso.Picasso;
 
 public class CustomAdapter extends BaseAdapter {
 
@@ -62,6 +66,7 @@ public class CustomAdapter extends BaseAdapter {
         RadioButton ok = (RadioButton) view.findViewById(R.id.rate_ok);
         RadioButton good = (RadioButton) view.findViewById(R.id.rate_good);
         RadioButton great = (RadioButton) view.findViewById(R.id.rate_great);
+        ImageView ivCriteria = (ImageView) view.findViewById(R.id.criteria_image);
 
         // perform setOnCheckedChangeListener event on poor button
         poor.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -136,18 +141,22 @@ public class CustomAdapter extends BaseAdapter {
 
         // set the value in TextView
         question.setText(criteriaList[i]);
-//        calculateTip();
+        // set image in ImageView
+        if (question.getText().equals("Service")) {
+            ivCriteria.setImageDrawable(ivCriteria.getResources().getDrawable(R.drawable.service));
+        } else {
+            System.out.println("FILE NOT FOUND");
+        }
+        if (question.getText().equals("Timeliness")) {
+            ivCriteria.setImageDrawable(ivCriteria.getResources().getDrawable(R.drawable.timeliness));
+        } else {
+            System.out.println("FILE NOT FOUND");
+        }
+        if (question.getText().equals("Food")) {
+            ivCriteria.setImageDrawable(ivCriteria.getResources().getDrawable(R.drawable.service));
+        } else {
+            System.out.println("FILE NOT FOUND");
+        }
         return view;
     }
-
-//    private void calculateTip() {
-//        tipPercentage = 0.15f;
-//        for (int i = 0; i < selectedAnswers.size(); i++) {
-//            tipPercentage += selectedAnswers.get(i);
-//        }
-//    }
-//
-//    public static float getTipPercentage() {
-//        return tipPercentage;
-//    }
 }

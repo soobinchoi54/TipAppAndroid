@@ -125,26 +125,16 @@ public class ExperienceActivity extends AppCompatActivity implements AdapterView
                 // putExtra review data to pass to next intent
                 if (bundle!=null) {
                     intent.putExtras(bundle);
-<<<<<<< HEAD
-                    intent.putExtra("CRITERIA1", CustomAdapter.selectedAnswers.get(0));
-                    intent.putExtra("CRITERIA2", CustomAdapter.selectedAnswers.get(1));
-                    intent.putExtra("CRITERIA3", CustomAdapter.selectedAnswers.get(2));
-=======
                     intent.putExtra("CRITERIA1", CustomAdapter.selectedAnswers.get(0)*100);
                     intent.putExtra("CRITERIA2", CustomAdapter.selectedAnswers.get(1)*100);
                     intent.putExtra("CRITERIA3", CustomAdapter.selectedAnswers.get(2)*100);
->>>>>>> f4f4e59cdcbb1cf23ada2787d363c80b232f4f83
                     intent.putExtra("TIME", timeSpent);
                 }
                 startActivity(intent);
 
                 // Test
                 System.out.println(resultData.toString());
-<<<<<<< HEAD
-                System.out.println(CustomAdapter.selectedAnswers.get(0) + " " + CustomAdapter.selectedAnswers.get(1) + " " + CustomAdapter.selectedAnswers.get(2) + " " + timeSpent);
-=======
                 System.out.println(CustomAdapter.selectedAnswers.get(0)*100 + " " + CustomAdapter.selectedAnswers.get(1)*100 + " " + CustomAdapter.selectedAnswers.get(2)*100 + " " + timeSpent);
->>>>>>> f4f4e59cdcbb1cf23ada2787d363c80b232f4f83
 
             }
         });
@@ -216,11 +206,7 @@ public class ExperienceActivity extends AppCompatActivity implements AdapterView
                     //Can use these seconds to send in intent to our calculation in TipResultActivity
                     System.out.println("Total seconds to use for calculation: " + timer.getSeconds());
                     timeView.setText("Current length of experience: " + time);
-<<<<<<< HEAD
-                    timeSpent = timeView.getText().toString();
-=======
                     timeSpent = time;
->>>>>>> f4f4e59cdcbb1cf23ada2787d363c80b232f4f83
                 }
                 handler.postDelayed(this, 1000);
 

@@ -103,9 +103,6 @@ public class SplitBillActivity extends AppCompatActivity {
         Object CRITERIA3 = bundle.get("CRITERIA3");
         Object IMAGE = bundle.get("IMAGE TEXT");
 
-<<<<<<< HEAD
-        DataBaseHelper.addExperience(getApplicationContext(), NAME.toString(), LOCATION.toString(), CATEGORY.toString(), PRICE.toString(), TOTAL_BILL.toString(), TIP_PERCENTAGE.toString(), TIME.toString(), CRITERIA1.toString(), CRITERIA2.toString(), CRITERIA3.toString(), " ", " ", IMAGE.toString());
-=======
         Experience experience = new Experience.ExperienceBuilder(NAME.toString())
                 .location(LOCATION.toString())
                 .category(CATEGORY.toString())
@@ -121,7 +118,6 @@ public class SplitBillActivity extends AppCompatActivity {
                 .image(IMAGE.toString())
                 .build();
         DataBaseHelper.addExperience(getApplicationContext(), experience);
->>>>>>> f4f4e59cdcbb1cf23ada2787d363c80b232f4f83
 
         // Test bundle key=>value pair for all data passed
         String string = "Bundle{ ";

@@ -38,7 +38,8 @@
             android:padding="16dp"
             android:layout_alignBaseline="@id/party_size_tv"
             android:layout_toRightOf="@id/party_size_tv"
-            android:hint="# of People"/>
+            android:hint="# of People"
+            android:background="@drawable/edit_text_box"/>
 
         <TextView
             android:id="@+id/per_person_tv"

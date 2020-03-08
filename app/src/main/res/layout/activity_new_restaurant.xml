@@ -31,10 +31,15 @@
 
         <Button
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginRight="100dp"
+            android:layout_marginBottom="100dp"
             android:text="@string/new_experience"
             android:layout_alignParentBottom="true"
             android:onClick="startExperience"
+            android:textColor="#ffffff"
+            android:background="@drawable/my_button"
             >
         </Button>
 

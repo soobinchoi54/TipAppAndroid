@@ -128,7 +128,25 @@ public class TipResultActivity extends AppCompatActivity {
                 Object CRITERIA3 = bundle2.get("CRITERIA3");
                 Object IMAGE = bundle2.get("IMAGE TEXT");
 
+<<<<<<< HEAD
                 DataBaseHelper.addExperience(getApplicationContext(), NAME.toString(), LOCATION.toString(), CATEGORY.toString(), PRICE.toString(), yourTotal.getText().toString(), tipPercentage.getText().toString(), TIME.toString(), CRITERIA1.toString(), CRITERIA2.toString(), CRITERIA3.toString(), " ", " ", IMAGE.toString());
+=======
+                Experience experience = new Experience.ExperienceBuilder(NAME.toString())
+                        .location(LOCATION.toString())
+                        .category(CATEGORY.toString())
+                        .price(PRICE.toString())
+                        .totalBill("$" + yourTotal.getText().toString())
+                        .tipPercentage(tipPercentage.getText().toString() + "%")
+                        .time(TIME.toString())
+                        .service(CRITERIA1.toString() + "%")
+                        .timeliness(CRITERIA2.toString() + "%")
+                        .food(CRITERIA3.toString() + "%")
+                        .custom("")
+                        .customRate("")
+                        .image(IMAGE.toString())
+                        .build();
+                DataBaseHelper.addExperience(getApplicationContext(), experience);
+>>>>>>> f4f4e59cdcbb1cf23ada2787d363c80b232f4f83
 
                 // Test bundle key=>value pair for all data passed
                 String string = "Bundle{ ";

@@ -94,18 +94,6 @@ public class TipResultActivity extends AppCompatActivity {
                 }
                 startActivity(intent);
 
-                Intent newIntent = new Intent(getApplicationContext(), ViewHistoryActivity.class);
-
-                // Create bundle containing data from previous activity
-                Bundle bundle1 = getIntent().getExtras();
-                // putExtra review data to pass to next intent
-                if (bundle1 != null) {
-                    newIntent.putExtras(bundle1);
-                    newIntent.putExtra("TOTAL_BILL", yourTotal.getText());
-                    newIntent.putExtra("TIP_PERCENTAGE", tipPercentage.getText());
-                }
-                startActivity(newIntent);
-
                 System.out.println(yourTotal.getText() + " " + tipPercentage.getText());
             }
         });
@@ -129,7 +117,26 @@ public class TipResultActivity extends AppCompatActivity {
                 }
                 startActivity(intent);
 
-                System.out.println(yourTotal.getText() + " " + tipPercentage.getText());
+                // ADD DATA FROM BUNDLE TO DATABASE
+                Object NAME = bundle2.get("NAME");
+                Object LOCATION = bundle2.get("LOCATION");
+                Object CATEGORY = bundle2.get("CATEGORY");
+                Object PRICE = bundle2.get("PRICE");
+                Object TIME = bundle2.get("TIME");
+                Object CRITERIA1 = bundle2.get("CRITERIA1");
+                Object CRITERIA2 = bundle2.get("CRITERIA2");
+                Object CRITERIA3 = bundle2.get("CRITERIA3");
+                Object IMAGE = bundle2.get("IMAGE TEXT");
+
+                DataBaseHelper.addExperience(getApplicationContext(), NAME.toString(), LOCATION.toString(), CATEGORY.toString(), PRICE.toString(), yourTotal.getText().toString(), tipPercentage.getText().toString(), TIME.toString(), CRITERIA1.toString(), CRITERIA2.toString(), CRITERIA3.toString(), " ", " ", IMAGE.toString());
+
+                // Test bundle key=>value pair for all data passed
+                String string = "Bundle{ ";
+                for (String key : bundle2.keySet()) {
+                    string += " " + key + " => " + bundle2.get(key) + ";";
+                }
+                string += " TOTAL BILL => " + yourTotal.getText() + ";" + " TIP PERCENTAGE => " + tipPercentage.getText() + "; }Bundle";
+                System.out.println(string);
             }
         });
     }

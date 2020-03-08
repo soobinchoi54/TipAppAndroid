@@ -17,7 +17,6 @@ public class RestaurantListAdapter extends RecyclerView.Adapter<RestaurantListAd
     private List<Restaurant> restaurantData;
     private RowClickListener listener;
     private String poster_path;
-
     public RestaurantListAdapter(List<Restaurant> data, RowClickListener listener) {
         this.restaurantData = data;
         this.listener = listener;
@@ -48,7 +47,7 @@ public class RestaurantListAdapter extends RecyclerView.Adapter<RestaurantListAd
         @Override
         public void onClick(View v) {
             System.out.println("Clicked");
-            listener.onClick(v, getAdapterPosition(), poster_path, tvName.getText().toString(), tvAddress.getText().toString(), tvCategories.getText().toString(), tvPrice.getText().toString());
+            listener.onClick(v, getAdapterPosition(), tvName.getText().toString(), tvAddress.getText().toString(), tvCategories.getText().toString(), tvPrice.getText().toString());
 
         }
     }

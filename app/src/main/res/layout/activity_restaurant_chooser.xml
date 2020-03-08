@@ -8,51 +8,26 @@
     android:orientation="vertical"
     tools:context=".RestaurantChooserActivity">
 
-    <View
-        android:id="@+id/divider"
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        style="@style/Divider"
-        android:layout_marginBottom="150dp"
-        android:layout_marginTop="3dp"
-        android:layout_alignParentBottom="true"
-        android:background="@android:drawable/dialog_holo_light_frame"/>
-
     <Button
-        android:id="@+id/newExperienceButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="startExperience"
-        android:text="@string/new_experience"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="60dp"
-        android:layout_marginLeft="100dp"
-        android:layout_marginRight="100dp"
-        android:background="@drawable/my_button"
-        android:textColor="#ffffff"
-        android:padding="16dp"/>
-
-    <TextView
         android:id="@+id/enterNewRestaurantButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="enterNewRestaurant"
         android:text="@string/new_restaurant_info"
+        android:textAllCaps="false"
         android:layout_alignParentBottom="true"
-        android:textAlignment="center"
-        android:layout_marginBottom="15dp"
-        android:layout_marginLeft="100dp"
-        android:layout_marginRight="100dp"
-        android:textColor="#999999"
-        android:clickable="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="40dp"
+        android:layout_marginLeft="180dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/my_button"
+        android:textColor="#ffffff"
         android:padding="16dp"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvRestaurantList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/divider"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

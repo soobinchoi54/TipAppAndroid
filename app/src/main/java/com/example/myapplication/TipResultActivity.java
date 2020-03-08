@@ -33,7 +33,7 @@ public class TipResultActivity extends AppCompatActivity {
     private TextView tipPercentage;
     private TextView yourTotal;
     private Button completeButton;
-    private Button splitButton;
+    private TextView splitButton;
 
     double total;
     double tip;
@@ -45,8 +45,6 @@ public class TipResultActivity extends AppCompatActivity {
         //Remove title bar
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
-        //Remove notification bar
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
         setContentView(R.layout.activity_tip_result);
 

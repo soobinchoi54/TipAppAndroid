@@ -7,99 +7,118 @@
     android:padding="15dp"
     tools:context=".SplitBillActivity">
 
-    <TextView
-        android:id="@+id/party_size_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <View
+        android:id="@+id/divider1"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        style="@style/Divider"
         android:layout_marginTop="30dp"
-        android:padding="16dp"
-        android:textAlignment="center"
-        android:textSize="18dp"
-        android:text="Part Size:"/>
-
-    <EditText
-        android:id="@+id/party_size"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:layout_alignBaseline="@id/party_size_tv"
-        android:layout_toRightOf="@id/party_size_tv"
-        android:hint="# of People"/>
-
-    <TextView
-        android:id="@+id/per_person_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:layout_marginTop="50dp"
-        android:layout_below="@id/party_size"
-        android:layout_centerInParent="true"
-        android:textAlignment="center"
-        android:textSize="25dp"
-        android:text="Each Person Owes You:"/>
-
-    <TextView
-        android:id="@+id/per_person"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:layout_below="@id/per_person_tv"
-        android:layout_centerInParent="true"
-        android:textAlignment="center"
-        android:textSize="25dp"/>
+        android:background="@android:drawable/dialog_holo_light_frame"/>
 
     <RelativeLayout
-        android:id="@+id/control_flow_box"
+        android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/per_person"
-        android:layout_centerHorizontal="true">
-        <Button
-            android:id="@+id/send_msg_button"
-            android:layout_width="190dp"
+        android:layout_marginTop="50dp">
+
+        <TextView
+            android:id="@+id/party_size_tv"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
+            android:layout_marginTop="30dp"
             android:padding="16dp"
             android:textAlignment="center"
-            android:textSize="16dp"
-            android:text="Let them know"
-            android:onClick="onSendMessage"/>
+            android:textSize="18dp"
+            android:text="Part Size:"/>
 
-        <Button
-            android:id="@+id/go_back_tipResult"
-            android:layout_width="190dp"
+        <EditText
+            android:id="@+id/party_size"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:onClick="onClickGoBack"
             android:padding="16dp"
-            android:text="back to tip result"
-            android:textAlignment="center"
-            android:textSize="16dp" />
+            android:layout_alignBaseline="@id/party_size_tv"
+            android:layout_toRightOf="@id/party_size_tv"
+            android:hint="# of People"/>
 
+        <TextView
+            android:id="@+id/per_person_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:layout_marginTop="50dp"
+            android:layout_below="@id/party_size"
+            android:layout_centerInParent="true"
+            android:textAlignment="center"
+            android:textSize="25dp"
+            android:text="Each Person Owes You:"/>
+
+        <TextView
+            android:id="@+id/per_person"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:layout_below="@id/per_person_tv"
+            android:layout_centerInParent="true"
+            android:textAlignment="center"
+            android:textSize="25dp"/>
 
     </RelativeLayout>
 
-    <TextView
-        android:id="@+id/or"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/control_flow_box"
-        android:padding="16dp"
-        android:layout_centerInParent="true"
-        android:textAlignment="center"
-        android:textSize="20dp"
-        android:text="or"/>
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        style="@style/Divider"
+        android:layout_below="@id/container"
+        android:background="@android:drawable/dialog_holo_light_frame"/>
+
+        <Button
+            android:id="@+id/send_msg_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="150dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginRight="100dp"
+            android:padding="16dp"
+            android:textAlignment="center"
+            android:text="Let them know"
+            android:textColor="#9999ff"
+            android:textAllCaps="false"
+            android:background="@drawable/my_button2"
+            android:onClick="onSendMessage"/>
+
+        <TextView
+            android:id="@+id/go_back_tipResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="105dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginRight="100dp"
+            android:onClick="onClickGoBack"
+            android:padding="16dp"
+            android:text="Back to tip result?"
+            android:textAllCaps="false"
+            android:textAlignment="center"
+            android:clickable="true"/>
+
 
     <Button
         android:id="@+id/complete_experience_button"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/or"
-        android:layout_centerInParent="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="60dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="100dp"
         android:padding="16dp"
         android:textAlignment="center"
-        android:textSize="20dp"
+        android:textAllCaps="false"
         android:text="Complete Experience"
+        android:textColor="#ffffff"
+        android:background="@drawable/my_button"
         android:onClick="onClickComplete"/>
 
 </RelativeLayout>

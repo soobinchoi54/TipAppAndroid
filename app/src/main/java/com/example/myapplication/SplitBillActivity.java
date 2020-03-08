@@ -82,6 +82,35 @@ public class SplitBillActivity extends AppCompatActivity {
 
         // submit to tip result activity
         Intent intent = new Intent(getApplicationContext(), ViewHistoryActivity.class);
+        // Create bundle containing data from previous activity
+        Bundle bundle = getIntent().getExtras();
+        // putExtra review data to pass to next intent
+        if (bundle != null) {
+            intent.putExtras(bundle);
+        }
         startActivity(intent);
+
+        // ADD DATA FROM BUNDLE TO DATABASE
+        Object NAME = bundle.get("NAME");
+        Object LOCATION = bundle.get("LOCATION");
+        Object CATEGORY = bundle.get("CATEGORY");
+        Object PRICE = bundle.get("PRICE");
+        Object TOTAL_BILL = bundle.get("TOTAL_BILL");
+        Object TIP_PERCENTAGE = bundle.get("TIP_PERCENTAGE");
+        Object TIME = bundle.get("TIME");
+        Object CRITERIA1 = bundle.get("CRITERIA1");
+        Object CRITERIA2 = bundle.get("CRITERIA2");
+        Object CRITERIA3 = bundle.get("CRITERIA3");
+        Object IMAGE = bundle.get("IMAGE TEXT");
+
+        DataBaseHelper.addExperience(getApplicationContext(), NAME.toString(), LOCATION.toString(), CATEGORY.toString(), PRICE.toString(), TOTAL_BILL.toString(), TIP_PERCENTAGE.toString(), TIME.toString(), CRITERIA1.toString(), CRITERIA2.toString(), CRITERIA3.toString(), " ", " ", IMAGE.toString());
+
+        // Test bundle key=>value pair for all data passed
+        String string = "Bundle{ ";
+        for (String key : bundle.keySet()) {
+            string += " " + key + " => " + bundle.get(key) + ";";
+        }
+        string += " }Bundle";
+        System.out.println(string);
     }
 }

@@ -35,13 +35,9 @@ import static java.lang.Math.floor;
 public class ExperienceActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private ListView criteriaList;
-
     private String[] criteria;
-
     private Button submitButton;
-
     private static float tipPercentage;
-
     private StringBuilder resultData;
 
     //TIMER_SERVICE : Fields
@@ -51,6 +47,8 @@ public class ExperienceActivity extends AppCompatActivity implements AdapterView
     private boolean running = false;
     //was running can be to check save instance state
     private boolean wasRunning = false;
+    //string to store timer to pass to bundle
+    private String timeSpent;
 
     //TIMER_SERVICE : field to bind timer service to ExperienceActivity
     private ServiceConnection connection = new ServiceConnection() {
@@ -130,11 +128,13 @@ public class ExperienceActivity extends AppCompatActivity implements AdapterView
                     intent.putExtra("CRITERIA1", CustomAdapter.selectedAnswers.get(0));
                     intent.putExtra("CRITERIA2", CustomAdapter.selectedAnswers.get(1));
                     intent.putExtra("CRITERIA3", CustomAdapter.selectedAnswers.get(2));
+                    intent.putExtra("TIME", timeSpent);
                 }
                 startActivity(intent);
 
+                // Test
                 System.out.println(resultData.toString());
-                System.out.println(CustomAdapter.selectedAnswers.get(0) + " " + CustomAdapter.selectedAnswers.get(1) + " " + CustomAdapter.selectedAnswers.get(2));
+                System.out.println(CustomAdapter.selectedAnswers.get(0) + " " + CustomAdapter.selectedAnswers.get(1) + " " + CustomAdapter.selectedAnswers.get(2) + " " + timeSpent);
 
             }
         });
@@ -206,6 +206,7 @@ public class ExperienceActivity extends AppCompatActivity implements AdapterView
                     //Can use these seconds to send in intent to our calculation in TipResultActivity
                     System.out.println("Total seconds to use for calculation: " + timer.getSeconds());
                     timeView.setText("Current length of experience: " + time);
+                    timeSpent = timeView.getText().toString();
                 }
                 handler.postDelayed(this, 1000);
 

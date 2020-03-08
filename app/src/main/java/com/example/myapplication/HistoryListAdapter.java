@@ -87,7 +87,12 @@ public class HistoryListAdapter extends RecyclerView.Adapter<HistoryListAdapter.
         }
         String custom = customBuilder.toString();
         holder.tvCustom.setText(custom);
-        Picasso.get().load(experience.getImage()).into(holder.ivRestaurant);
+        // getImage() path must not be empty -- Add alternate image when custom restaurant is entered when it is empty
+        if (!(experience.getImage().isEmpty())) {
+            Picasso.get().load(experience.getImage()).into(holder.ivRestaurant);
+        } else {
+            Picasso.get().load("https://i.imgur.com/DvpvklR.png").into(holder.ivRestaurant);
+        }
     }
 
 

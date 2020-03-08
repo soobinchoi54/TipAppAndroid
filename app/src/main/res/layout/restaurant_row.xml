@@ -10,46 +10,53 @@
     card_view:cardCornerRadius="8dp">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent">
         <ImageView
             android:id="@+id/ivRestaurant"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            tools:srcCompat="@tools:sample/avatars"/>
+            tools:srcCompat="@tools:sample/avatars"
+            android:background="@android:color/transparent"/>
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/ivRestaurant"
-            android:paddingLeft="20dp">
+            android:paddingLeft="20dp"
+            android:background="@android:color/transparent">
             <TextView
                 android:id="@+id/restaurantName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Name"
                 android:textSize="7pt"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:background="@android:color/transparent"/>
 
             <TextView
                 android:id="@+id/restaurantAddress"
                 android:layout_below="@id/restaurantName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Address" />
+                android:text="Address"
+                android:background="@android:color/transparent"/>
 
             <TextView
                 android:id="@+id/restaurantCategories"
                 android:layout_below="@id/restaurantAddress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Category" />
+                android:text="Category"
+                android:background="@android:color/transparent"/>
 
             <TextView
                 android:id="@+id/restaurantPrice"
                 android:layout_below="@id/restaurantCategories"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Price" />
+                android:text="Price"
+                android:background="@android:color/transparent"/>
 
         </RelativeLayout>
 

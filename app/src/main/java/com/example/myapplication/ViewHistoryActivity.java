@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -30,7 +31,6 @@ import com.example.myapplication.util.HistoryListAdapter;
 public class ViewHistoryActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private RelativeLayout buttons;
     private HistoryListAdapter adapter;
     private List<Experience> experiences;
 
@@ -48,14 +48,13 @@ public class ViewHistoryActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.experienceList);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));
         recyclerView.setAdapter(adapter);
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        buttons = findViewById(R.id.buttons);
-        buttons.bringToFront();
     }
 
     private void fetchData(){

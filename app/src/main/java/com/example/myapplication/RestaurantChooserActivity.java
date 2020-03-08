@@ -49,6 +49,7 @@ public class RestaurantChooserActivity extends AppCompatActivity implements Loca
     private Location location;
     int TAG_CODE_PERMISSION_LOCATION;
     private TextView restaurantChosenTextView;
+    private List<Restaurant> restaurantList;
 
     private String chosenRestaurantURL;
     private String chosenRestaurantName;
@@ -95,7 +96,7 @@ public class RestaurantChooserActivity extends AppCompatActivity implements Loca
             @Override
             public void onResponse(Call<RestaurantList> call, Response<RestaurantList> response) {
                 //get list of top rated movies response
-                List<Restaurant> restaurantList = (response.body().getRestaurantList());
+                restaurantList = (response.body().getRestaurantList());
                 //get recycler view id and adjust layout similar to program list activity
                 recyclerView = findViewById(R.id.rvRestaurantList);
                 recyclerView.setHasFixedSize(true);
@@ -213,22 +214,22 @@ public class RestaurantChooserActivity extends AppCompatActivity implements Loca
     }
 
     @Override
-    public void onClick(View view, int i, String imageUrl, String name, String address, String categories, String price) {
+    public void onClick(View view, int i, String name, String address, String categories, String price) {
         //System.out.println(i);
 //        restaurantChosenTextView = findViewById(R.id.tvRestaurantChosen);
 //        restaurantChosenTextView.setText("Restaurant Selected:\n\n" + name + "\n" + address + "\n" + categories);
-        chosenRestaurantURL = imageUrl;
+        chosenRestaurantURL = restaurantList.get(recyclerView.getLayoutManager().getPosition(view)).getImageURL();
         chosenRestaurantName = name;
         chosenRestaurantAddress = address;
         chosenRestaurantCategories = categories;
         chosenRestaurantPrice = price;
 
         //test information selected
-        /*System.out.println("URL: " + chosenRestaurantURL);
+        System.out.println("URL: " + chosenRestaurantURL);
         System.out.println("Name: " + chosenRestaurantName);
         System.out.println("Address: " + chosenRestaurantAddress);
         System.out.println("Categories: " + chosenRestaurantCategories);
-        System.out.println("Price: " + chosenRestaurantPrice);*/
+        System.out.println("Price: " + chosenRestaurantPrice);
 
 
     }

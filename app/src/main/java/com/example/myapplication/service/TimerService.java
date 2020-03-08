@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.service;
 
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -26,7 +26,7 @@ public class TimerService extends Service {
     private final TimerBinder binder = new TimerBinder();
 
     public class TimerBinder extends Binder {
-        TimerService getTimer() {
+        public TimerService getTimer() {
             return TimerService.this;
         }
     }

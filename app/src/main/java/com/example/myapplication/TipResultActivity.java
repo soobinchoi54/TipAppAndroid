@@ -14,7 +14,8 @@ import android.widget.Toast;
 
 import java.text.DecimalFormat;
 
-import static java.lang.Math.floor;
+import com.example.myapplication.model.Experience;
+import com.example.myapplication.database.DataBaseHelper;
 
 /************************************************************************************************
  * The TipResultActivity provides an interface for the users to input the total bill amount from

@@ -18,6 +18,9 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.example.myapplication.model.Experience;
+import com.example.myapplication.database.DataBaseHelper;
+import com.example.myapplication.util.HistoryListAdapter;
 
 /**************************************************************************************************
  *           An activity for displaying all the history experience records to UI

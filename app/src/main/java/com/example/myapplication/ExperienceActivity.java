@@ -9,18 +9,15 @@ import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import static java.lang.Math.floor;
-
+import com.example.myapplication.service.TimerService;
+import com.example.myapplication.util.CustomAdapter;
 
 /************************************************************************************************
  * The ExperienceActivity provides an interface for the users to create and submit a new dining

@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.model;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;

@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.util;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,17 +7,18 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.squareup.picasso.Picasso;
-
 import java.util.List;
+
+import com.example.myapplication.model.Restaurant;
+import com.example.myapplication.R;
 
 public class RestaurantListAdapter extends RecyclerView.Adapter<RestaurantListAdapter.ViewHolder> {
     private List<Restaurant> restaurantData;
     private RowClickListener listener;
     private String poster_path;
 
-    RestaurantListAdapter(List<Restaurant> data, RowClickListener listener) {
+    public RestaurantListAdapter(List<Restaurant> data, RowClickListener listener) {
         this.restaurantData = data;
         this.listener = listener;
 

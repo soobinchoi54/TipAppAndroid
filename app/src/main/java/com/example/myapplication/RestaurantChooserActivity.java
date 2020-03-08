@@ -27,6 +27,12 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import com.example.myapplication.util.RowClickListener;
+import com.example.myapplication.util.RestaurantApiService;
+import com.example.myapplication.util.RestaurantListAdapter;
+import com.example.myapplication.model.RestaurantList;
+import com.example.myapplication.model.Restaurant;
+
 public class RestaurantChooserActivity extends AppCompatActivity implements LocationListener, RowClickListener{
 
 

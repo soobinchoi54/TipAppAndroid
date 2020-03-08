@@ -1,79 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".RestaurantChooserActivity">
 
-    <RelativeLayout
+    <View
+        android:id="@+id/divider"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="2dp"
+        style="@style/Divider"
+        android:layout_marginBottom="150dp"
+        android:layout_marginTop="3dp"
+        android:layout_alignParentBottom="true"
+        android:background="@android:drawable/dialog_holo_light_frame"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_centerHorizontal="true"
-            android:id="@+id/horizontalButtonsLayout"
-            android:layout_alignParentBottom="true">
+    <Button
+        android:id="@+id/newExperienceButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="startExperience"
+        android:text="@string/new_experience"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="75dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="100dp"
+        android:background="@drawable/my_button2"
+        android:textColor="#9999ff"
+        android:padding="16dp"/>
 
-            <Button
-                android:id="@+id/newExperienceButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:onClick="startExperience"
-                android:text="@string/new_experience"
+    <TextView
+        android:id="@+id/enterNewRestaurantButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="enterNewRestaurant"
+        android:text="@string/new_restaurant_info"
+        android:layout_alignParentBottom="true"
+        android:textAlignment="center"
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="100dp"
+        android:textColor="#999999"
+        android:clickable="true"
+        android:padding="16dp"/>
 
-                />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvRestaurantList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/divider"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-            <Button
-                android:id="@+id/enterNewRestaurantButton"
-                android:layout_width="wrap_content"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:onClick="enterNewRestaurant"
-                android:text="@string/new_restaurant_info" />
-
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/refreshButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/tvRestaurantChosen"
-            android:onClick="refreshLocation"
-            android:layout_marginBottom="5dp"
-            android:text="@string/refresh_list" />
-
-
-        <TextView
-            android:id="@+id/tvRestaurantChosen"
-
-            android:layout_marginBottom="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/restaurant_selected"
-            android:textSize="15dp"
-            android:layout_above="@id/horizontalButtonsLayout"/>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvRestaurantList"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_above="@+id/refreshButton"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-
-
-    </RelativeLayout>
-
-
-
-</LinearLayout>
+</RelativeLayout>

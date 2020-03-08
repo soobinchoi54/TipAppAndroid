@@ -49,10 +49,9 @@
             android:id="@+id/criteria_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:divider="#9999FF"
-            android:dividerHeight="1dp"
-            android:footerDividersEnabled="false"
-            android:layout_above="@id/submit_button" />
+            android:layout_above="@id/submit_button"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="10.0sp"/>
 
         <TextView
             android:id="@+id/time_view"

@@ -74,7 +74,7 @@ public class TipResultActivity extends AppCompatActivity {
                 DecimalFormat f = new DecimalFormat("##.00");
 
                 // set text for your total bill after tip text view
-                yourTotal.setText(f.format(totalPlusTip));
+                yourTotal.setText(f.format(totalPlusTip) + "$");
             }
         });
 

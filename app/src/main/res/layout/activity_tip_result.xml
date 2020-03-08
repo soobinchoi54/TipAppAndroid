@@ -3,124 +3,136 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-
     tools:context=".TipResultActivity">
 
-    <RelativeLayout
-        android:id="@+id/container"
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp"
-        android:layout_marginTop="50dp">
+        android:layout_margin="16dp">
 
-        <TextView
-            android:id="@+id/bill_total_tv"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:padding="16dp"
-            android:textAlignment="center"
-            android:textSize="18dp"
-            android:text="Bill Total:"/>
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:background="@color/white_opaque">
 
-        <TextView
-            android:id="@+id/dollar_sign"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:layout_alignBaseline="@id/bill_total_tv"
-            android:layout_toRightOf="@id/bill_total_tv"
-            android:textAlignment="center"
-            android:textSize="18dp"
-            android:text=" $ "/>
-
-        <EditText
-            android:id="@+id/bill_total_value"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:padding="16dp"
-            android:layout_alignBaseline="@id/bill_total_tv"
-            android:layout_toRightOf="@id/dollar_sign"
-            android:hint="Enter total amount here"
-            android:background="@drawable/edit_text_box"
-            android:textCursorDrawable="@drawable/cursor_color"/>
-
-        <TextView
-            android:id="@+id/tip_percentage_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:layout_below="@id/bill_total_tv"
-            android:textAlignment="center"
-            android:textSize="18dp"
-            android:text="Tip Percentage:"/>
-
-
-
-        <TextView
-            android:id="@+id/tip_percentage_value"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:layout_below="@id/bill_total_tv"
-            android:layout_toRightOf="@id/tip_percentage_tv"
-            android:layout_alignBaseline="@id/tip_percentage_tv"
-            android:textAlignment="center"
-            android:textSize="18dp"/>
-
-        <TextView
-            android:id="@+id/percent_sign"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:layout_alignBaseline="@id/tip_percentage_tv"
-            android:layout_toRightOf="@id/tip_percentage_value"
-            android:textAlignment="center"
-            android:textSize="18dp"
-            android:text=" % "/>
-
-
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:layout_alignBaseline="@id/tip_percentage_tv"
-            android:layout_toRightOf="@id/percent_sign"
-            android:textAlignment="center"
-            android:textSize="6dp"
-            android:text="Want to edit your experience?"
-            android:onClick="onClickEdit"/>
-
-        <TextView
-            android:id="@+id/your_total_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:layout_marginTop="50dp"
-            android:layout_below="@id/tip_percentage_tv"
+        <RelativeLayout
+            android:id="@+id/container1"
             android:layout_centerInParent="true"
-            android:textAlignment="center"
-            android:textSize="25dp"
-            android:text="Your Total:"/>
-
-        <TextView
-            android:id="@+id/your_total_value"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:layout_below="@id/your_total_tv"
+            android:background="@android:color/transparent">
+            <TextView
+                android:id="@+id/bill_total_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:padding="16dp"
+                android:textAlignment="center"
+                android:textSize="18dp"
+                android:text="Bill Total:"
+                android:textStyle="bold"
+                android:background="@android:color/transparent"/>
+
+            <TextView
+                android:id="@+id/dollar_sign"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:layout_alignBaseline="@id/bill_total_tv"
+                android:layout_toRightOf="@id/bill_total_tv"
+                android:textAlignment="center"
+                android:textSize="18dp"
+                android:text=" $ "
+                android:background="@android:color/transparent"/>
+
+            <EditText
+                android:id="@+id/bill_total_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:padding="16dp"
+                android:layout_alignBaseline="@id/bill_total_tv"
+                android:layout_toRightOf="@id/dollar_sign"
+                android:hint="$"
+                android:background="@drawable/edit_text_box"
+                android:textCursorDrawable="@drawable/cursor_color"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/container2"
             android:layout_centerInParent="true"
-            android:textAlignment="center"
-            android:textSize="25dp"/>
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:layout_below="@id/container1">
+            <TextView
+                android:id="@+id/tip_percentage_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:textAlignment="center"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:text="Tip Percentage:"
+                android:background="@android:color/transparent"/>
 
 
 
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/tip_percentage_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:layout_toRightOf="@id/tip_percentage_tv"
+                android:layout_alignBaseline="@id/tip_percentage_tv"
+                android:textAlignment="center"
+                android:textSize="18dp"
+                android:background="@android:color/transparent"/>
 
+            <TextView
+                android:id="@+id/percent_sign"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/tip_percentage_tv"
+                android:layout_toRightOf="@id/tip_percentage_value"
+                android:padding="16dp"
+                android:text=" % "
+                android:textAlignment="center"
+                android:textSize="18dp"
+                android:background="@android:color/transparent"/>
+        </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/icon"
+                android:layout_centerInParent="true"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/tip_result"
+                android:layout_below="@id/container2"/>
+
+            <TextView
+                android:id="@+id/your_total_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:layout_below="@id/icon"
+                android:layout_centerInParent="true"
+                android:textAlignment="center"
+                android:textSize="25dp"
+                android:background="@android:color/transparent"/>
+
+
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
 
     <Button
         android:id="@+id/split_bill_button"

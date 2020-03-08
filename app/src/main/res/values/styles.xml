@@ -3,7 +3,14 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light">
         <!-- Customize your theme here. -->
-        <item name="android:background">@color/white_opaque</item>
+        <item name="android:background">@color/light_grey</item>
+        <item name="android:windowBackground">@color/white_opaque</item>
+        <item name="android:colorBackground">@color/white_opaque</item>
+    </style>
+
+    <style name="MainTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="android:background">@color/light_grey</item>
         <item name="android:windowBackground">@color/white_opaque</item>
         <item name="android:colorBackground">@color/white_opaque</item>
     </style>

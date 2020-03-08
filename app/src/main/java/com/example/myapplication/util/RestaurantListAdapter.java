@@ -66,7 +66,11 @@ public class RestaurantListAdapter extends RecyclerView.Adapter<RestaurantListAd
         //get current poster path
         poster_path = restaurant.getImageURL();
         //set image view to full poster path image using picasso
-        Picasso.get().load(poster_path).into(holder.ivRestaurant);
+        Picasso.get()
+                .load(poster_path)
+                .resize(150, 150)
+                .centerCrop()
+                .into(holder.ivRestaurant);
 
         //Set all text views with movie data
         holder.tvName.setText(restaurant.getName());

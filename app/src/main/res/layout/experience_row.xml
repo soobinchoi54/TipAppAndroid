@@ -3,17 +3,18 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:layout_margin="10dp"
-    card_view:cardCornerRadius="8dp"
-    card_view:cardBackgroundColor="#e4bfef">
+    card_view:cardCornerRadius="8dp">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="10dp" >
+        android:padding="10dp"
+        android:background="@color/white_opaque">
 
         <!--    <ImageView-->
         <!--        android:id="@+id/ivMovie"-->
@@ -24,72 +25,84 @@
             android:id="@+id/ivRestaurant"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            tools:srcCompat="@tools:sample/avatars" />
+            tools:srcCompat="@tools:sample/avatars"
+            android:background="@android:color/transparent"/>
 
         <TextView
             android:id="@+id/tvName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="tvName"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:background="@android:color/transparent"/>
 
         <TextView
             android:id="@+id/tvLocation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="tvLocation" />
+            android:text="tvLocation"
+            android:background="@android:color/transparent"/>
 
         <TextView
             android:id="@+id/tvCategory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="tvCategory" />
+            android:text="tvCategory"
+            android:background="@android:color/transparent"/>
 
         <TextView
             android:id="@+id/tvPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="tvPrice" />
+            android:text="tvPrice"
+            android:background="@android:color/transparent"/>
 
         <TextView
             android:id="@+id/tvTotalBill"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="tvTotalBill" />
+            android:text="tvTotalBill"
+            android:background="@android:color/transparent"/>
 
         <TextView
             android:id="@+id/tvTipPercentage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="tvTipPercentage" />
+            android:text="tvTipPercentage"
+            android:background="@android:color/transparent"/>
 
         <TextView
             android:id="@+id/tvTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="tvTime" />
+            android:text="tvTime"
+            android:background="@android:color/transparent"/>
 
         <TextView
             android:id="@+id/tvService"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="tvService" />
+            android:text="tvService"
+            android:background="@android:color/transparent"/>
         <TextView
             android:id="@+id/tvTimeliness"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="tvTimeliness" />
+            android:text="tvTimeliness"
+            android:background="@android:color/transparent"/>
 
         <TextView
             android:id="@+id/tvFood"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="tvFood" />
+            android:text="tvFood"
+            android:background="@android:color/transparent"/>
         <TextView
             android:id="@+id/tvCustom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="" />
+            android:text=""
+            android:background="@android:color/transparent"/>
 
     </LinearLayout>
 

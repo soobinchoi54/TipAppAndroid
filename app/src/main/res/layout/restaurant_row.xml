@@ -6,12 +6,12 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp"
+    android:layout_margin="16dp"
     card_view:cardCornerRadius="8dp">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/transparent">
+        android:background="@color/white_opaque">
         <ImageView
             android:id="@+id/ivRestaurant"
             android:layout_width="150dp"

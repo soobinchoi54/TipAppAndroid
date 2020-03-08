@@ -33,7 +33,7 @@ public class TipResultActivity extends AppCompatActivity {
     private TextView tipPercentage;
     private TextView yourTotal;
     private Button completeButton;
-    private TextView splitButton;
+    private Button splitButton;
 
     double total;
     double tip;

@@ -79,7 +79,8 @@
                     android:button="@android:color/transparent"
                     android:buttonTint="#9999FF"
                     android:textAlignment="center"
-                    android:textColor="#9999FF"
+                    android:textColor="#FFFFFF"
+                    android:checked="true"
                     android:text="@string/ok"/>
                 <RadioButton
                     android:id="@+id/rate_good"

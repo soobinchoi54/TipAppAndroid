@@ -28,9 +28,9 @@ public class HistoryListAdapter extends RecyclerView.Adapter<HistoryListAdapter.
         TextView tvTotalBill;
         TextView tvTipPercentage;
         TextView tvTime;
-        TextView tvCritera1;
-        TextView tvCritera2;
-        TextView tvCritera3;
+        TextView tvService;
+        TextView tvTimeliness;
+        TextView tvFood;
         TextView tvCustom;
 
 
@@ -45,9 +45,9 @@ public class HistoryListAdapter extends RecyclerView.Adapter<HistoryListAdapter.
             tvTotalBill = itemView.findViewById(R.id.tvTotalBill);
             tvTipPercentage = itemView.findViewById(R.id.tvTipPercentage);
             tvTime = itemView.findViewById(R.id.tvTime);
-            tvCritera1 = itemView.findViewById(R.id.tvCritera1);
-            tvCritera2 = itemView.findViewById(R.id.tvCritera2);
-            tvCritera3 = itemView.findViewById(R.id.tvCritera3);
+            tvService = itemView.findViewById(R.id.tvService);
+            tvTimeliness = itemView.findViewById(R.id.tvTimeliness);
+            tvFood = itemView.findViewById(R.id.tvFood);
             tvCustom = itemView.findViewById(R.id.tvCustom);
 
         }
@@ -76,23 +76,28 @@ public class HistoryListAdapter extends RecyclerView.Adapter<HistoryListAdapter.
         holder.tvTotalBill.setText("Total Bill: " + experience.getTotalBill());
         holder.tvTipPercentage.setText("Tip Percentage: " + experience.getTipPercentage());
         holder.tvTime.setText("Time spent: " + experience.getTime());
-        holder.tvCritera1.setText("Critera1: " + experience.getCriteria1());
-        holder.tvCritera2.setText("Critera2: " + experience.getCriteria2());
-        holder.tvCritera3.setText("Critera3: " + experience.getCriteria3());
-        String[] customs = experience.getCustom().split("#");
-        String[] custom_rates = experience.getCUSTOM_RATE().split("#");
-        StringBuilder customBuilder = new StringBuilder();
-        for(int i = 0; i < customs.length; i++){
-            customBuilder.append(customs[i].trim() + ": " + custom_rates[i].trim() + "\n");
-        }
-        String custom = customBuilder.toString();
-        holder.tvCustom.setText(custom);
+        holder.tvService.setText("Service: " + experience.getService());
+        holder.tvTimeliness.setText("Timeliness: " + experience.getTimeliness());
+        holder.tvFood.setText("Food: " + experience.getFood());
+
         // getImage() path must not be empty -- Add alternate image when custom restaurant is entered when it is empty
         if (!(experience.getImage().isEmpty())) {
             Picasso.get().load(experience.getImage()).into(holder.ivRestaurant);
         } else {
             Picasso.get().load("https://i.imgur.com/DvpvklR.png").into(holder.ivRestaurant);
         }
+
+        // add customized criteria and criteria rate
+        String[] customs = experience.getCustom().split("#");
+        String[] custom_rates = experience.getCUSTOM_RATE().split("#");
+        if(customs[0].isEmpty()) return;
+        StringBuilder customBuilder = new StringBuilder();
+        for(int i = 0; i < customs.length; i++){
+            customBuilder.append(customs[i].trim() + ": " + custom_rates[i].trim() + "\n");
+        }
+        String custom = customBuilder.toString();
+        holder.tvCustom.setText(custom);
+
     }
 
 

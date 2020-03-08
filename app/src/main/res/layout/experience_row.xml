@@ -14,8 +14,8 @@
 <!--        tools:srcCompat="@tools:sample/avatars" />-->
     <ImageView
         android:id="@+id/ivRestaurant"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
@@ -62,25 +62,25 @@
         android:text="tvTime" />
 
     <TextView
-        android:id="@+id/tvCritera1"
+        android:id="@+id/tvService"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="tvCritera1" />
+        android:text="tvService" />
     <TextView
-        android:id="@+id/tvCritera2"
+        android:id="@+id/tvTimeliness"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="tvCritera2" />
+        android:text="tvTimeliness" />
 
     <TextView
-        android:id="@+id/tvCritera3"
+        android:id="@+id/tvFood"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="tvCritera3" />
+        android:text="tvFood" />
     <TextView
         android:id="@+id/tvCustom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="tvCustom" />
+        android:text="" />
 
 </LinearLayout>

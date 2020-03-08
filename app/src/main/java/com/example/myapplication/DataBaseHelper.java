@@ -16,7 +16,7 @@ import java.util.List;
 public class DataBaseHelper extends SQLiteOpenHelper {
 
     public static final String DB_NAME = "TipsDataBase";
-    public static final int DB_VERSION = 2;
+    public static final int DB_VERSION = 3;
 
     DataBaseHelper(Context context){
         super(context, DB_NAME, null, DB_VERSION);
@@ -40,30 +40,30 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 + "TOTAL_BILL TEXT, "
                 + "TIP_PERCENTAGE TEXT, "
                 + "TIME TEXT, "
-                + "CRITERIA1 TEXT, "
-                + "CRITERIA2 TEXT, "
-                + "CRITERIA3 TEXT, "
+                + "SERVICE TEXT, "
+                + "TIMELINESS TEXT, "
+                + "FOOD TEXT, "
                 + "CUSTOM TEXT, "
                 + "CUSTOM_RATE TEXT, "
                 + "IMAGE TEXT);");
     }
 
     // add an experience to database (inner logic)
-    private static void add(SQLiteDatabase db, String NAME, String LOCATION, String CATEGORY, String PRICE, String TOTAL_BILL, String TIP_PERCENTAGE, String TIME, String CRITERIA1, String CRITERIA2, String CRITERIA3, String CUSTOM, String CUSTOM_RATE, String IMAGE){
+    private static void add(SQLiteDatabase db, Experience experienceToAdd){
         ContentValues experience = new ContentValues();
-        experience.put("NAME", NAME);
-        experience.put("LOCATION", LOCATION);
-        experience.put("CATEGORY", CATEGORY);
-        experience.put("PRICE", PRICE);
-        experience.put("TOTAL_BILL", TOTAL_BILL);
-        experience.put("TIP_PERCENTAGE", TIP_PERCENTAGE);
-        experience.put("TIME", TIME);
-        experience.put("CRITERIA1", CRITERIA1);
-        experience.put("CRITERIA2", CRITERIA2);
-        experience.put("CRITERIA3", CRITERIA3);
-        experience.put("CUSTOM", CUSTOM);
-        experience.put("CUSTOM_RATE", CUSTOM_RATE);
-        experience.put("IMAGE", IMAGE);
+        experience.put("NAME", experienceToAdd.getName());
+        experience.put("LOCATION", experienceToAdd.getLocation());
+        experience.put("CATEGORY", experienceToAdd.getCategory());
+        experience.put("PRICE", experienceToAdd.getPrice());
+        experience.put("TOTAL_BILL", experienceToAdd.getTotalBill());
+        experience.put("TIP_PERCENTAGE", experienceToAdd.getTipPercentage());
+        experience.put("TIME", experienceToAdd.getTime());
+        experience.put("SERVICE", experienceToAdd.getService());
+        experience.put("TIMELINESS", experienceToAdd.getTimeliness());
+        experience.put("FOOD", experienceToAdd.getFood());
+        experience.put("CUSTOM", experienceToAdd.getCustom());
+        experience.put("CUSTOM_RATE", experienceToAdd.getCUSTOM_RATE());
+        experience.put("IMAGE", experienceToAdd.getImage());
         db.insert(DB_NAME, null, experience);
         System.out.println("Record Written");
     }
@@ -74,7 +74,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         boolean firstData = true;
         try {
             Cursor cursor = db.query (DB_NAME,
-                    new String[] {"NAME", "LOCATION", "CATEGORY","PRICE", "TOTAL_BILL", "TIP_PERCENTAGE", "TIME", "CRITERIA1", "CRITERIA2", "CRITERIA3", "CUSTOM", "CUSTOM_RATE", "IMAGE"},
+                    new String[] {"NAME", "LOCATION", "CATEGORY","PRICE", "TOTAL_BILL", "TIP_PERCENTAGE", "TIME", "SERVICE", "TIMELINESS", "FOOD", "CUSTOM", "CUSTOM_RATE", "IMAGE"},
                     null,
                     null,
                     null, null, null);
@@ -89,13 +89,27 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                     String TOTAL_BILL = cursor.getString(4);
                     String TIP_PERCENTAGE = cursor.getString(5);
                     String TIME = cursor.getString(6);
-                    String CRITERIA1 = cursor.getString(7);
-                    String CRITERIA2 = cursor.getString(8);
-                    String CRITERIA3 = cursor.getString(9);
+                    String SERVICE = cursor.getString(7);
+                    String TIMELINESS = cursor.getString(8);
+                    String FOOD = cursor.getString(9);
                     String CUSTOM = cursor.getString(10);
                     String CUSTOM_RATE = cursor.getString(11);
                     String IMAGE = cursor.getString(12);
-                    experiences.add(new Experience(NAME, LOCATION, CATEGORY, PRICE, TOTAL_BILL, TIP_PERCENTAGE, TIME, CRITERIA1, CRITERIA2, CRITERIA3, CUSTOM, CUSTOM_RATE, IMAGE));
+                    Experience experience = new Experience.ExperienceBuilder(NAME)
+                            .location(LOCATION)
+                            .category(CATEGORY)
+                            .price(PRICE)
+                            .totalBill(TOTAL_BILL)
+                            .tipPercentage(TIP_PERCENTAGE)
+                            .time(TIME)
+                            .service(SERVICE)
+                            .timeliness(TIMELINESS)
+                            .food(FOOD)
+                            .custom(CUSTOM)
+                            .customRate(CUSTOM_RATE)
+                            .image(IMAGE)
+                            .build();
+                    experiences.add(experience);
                     firstData = false;
                 }
             }
@@ -106,11 +120,11 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     }
 
     // API: add an experience to database
-    public static void addExperience(Context context, String NAME, String LOCATION, String CATEGORY, String PRICE, String TOTAL_BILL, String TIP_PERCENTAGE, String TIME, String CRITERIA1, String CRITERIA2, String CRITERIA3, String CUSTOM, String CUSTOM_RATE, String IMAGE){
+    public static void addExperience(Context context, Experience experience){
         SQLiteOpenHelper dataBaseHelper = new DataBaseHelper(context);
         SQLiteDatabase db = dataBaseHelper.getWritableDatabase();
         try {
-            DataBaseHelper.add(db, NAME, LOCATION, CATEGORY, PRICE, TOTAL_BILL, TIP_PERCENTAGE, TIME, CRITERIA1, CRITERIA2, CRITERIA3, CUSTOM, CUSTOM_RATE, IMAGE);
+            DataBaseHelper.add(db, experience);
         } catch (SQLiteException e) {
             Toast toast = Toast.makeText(context, "Database unavailable", Toast.LENGTH_SHORT);
             toast.show();
@@ -145,7 +159,50 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     }
 
     public static void testAdd2Experience(Context context){
-        addExperience(context, "BCD", "Irvine", "Korean", "$$", "25$", "15%", "30:00", "-1%", "0%", "+1%", "Good Restroom#Not enough fish cake  ", "+1%#-1%", "https://i.imgur.com/DvpvklR.png");
-        addExperience(context, "HaiDiLao", "Irvine", "Chinese", "$$$", "100$", "15%", "50:00", "-1%", "0%", "+1%", "Good restroom#Good sneak", "+1%#+1%", "https://i.imgur.com/DvpvklR.png");
+        Experience experience1 = new Experience.ExperienceBuilder("BCD")
+                .location("Irvine")
+                .category("Korean")
+                .price("$$")
+                .totalBill("25$")
+                .tipPercentage("15$")
+                .time("30:00")
+                .service("-1%")
+                .timeliness("0%")
+                .food("+1%")
+                .custom("Good Restroom#Not enough fish cake  ")
+                .customRate("+1%#-1%")
+                .image("https://i.imgur.com/DvpvklR.png")
+                .build();
+        Experience experience2 = new Experience.ExperienceBuilder("HaiDiLao")
+                .location("Irvine")
+                .category("Chinese")
+                .price("$$$")
+                .totalBill("100$")
+                .tipPercentage("17$")
+                .time("50:00")
+                .service("-1%")
+                .timeliness("0%")
+                .food("+1%")
+                .custom("Good restroom#Good sneak")
+                .customRate("+1%#+1%")
+                .image("https://i.imgur.com/DvpvklR.png")
+                .build();
+        Experience experience3 = new Experience.ExperienceBuilder("HaiDiLao")
+                .location("Irvine")
+                .category("Chinese")
+                .price("$$$")
+                .totalBill("100$")
+                .tipPercentage("17$")
+                .time("50:00")
+                .service("-1%")
+                .timeliness("0%")
+                .food("+1%")
+                .custom("")
+                .customRate("")
+                .image("https://i.imgur.com/DvpvklR.png")
+                .build();
+        addExperience(context, experience1);
+        addExperience(context, experience2);
+        addExperience(context, experience3);
     }
 }

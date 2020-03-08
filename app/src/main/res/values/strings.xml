@@ -12,6 +12,7 @@
     <string name="history_list">View My History List</string>
     <string name="deleteTable">Delete All Data</string>
     <string name="restaurant_chooser">Pick A Restaurant</string>
+<!--    <string name="title_size">10pt</string>-->
 
     <!--    Soobin-->
     <string name="add_experience">Add an Experience</string>

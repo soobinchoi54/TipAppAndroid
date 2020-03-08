@@ -39,7 +39,8 @@
             android:layout_alignBaseline="@id/party_size_tv"
             android:layout_toRightOf="@id/party_size_tv"
             android:hint="# of People"
-            android:background="@drawable/edit_text_box"/>
+            android:background="@drawable/edit_text_box"
+            android:textCursorDrawable="@drawable/cursor_color"/>
 
         <TextView
             android:id="@+id/per_person_tv"

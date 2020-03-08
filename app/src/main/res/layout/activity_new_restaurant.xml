@@ -3,44 +3,48 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="15dp"
     tools:context=".NewRestaurantActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
 
         <EditText
             android:id="@+id/new_restaurant_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Restaurant Name"
-            android:textSize="25dp"
-            android:layout_marginTop="100dp"/>
+            android:layout_marginTop="100dp"
+            android:padding="10dp"
+            android:background="@drawable/edit_text_box"
+            android:textCursorDrawable="@drawable/cursor_color"/>
 
         <EditText
             android:id="@+id/new_restaurant_location"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/new_restaurant_name"
-            android:textSize="25dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="20dp"
+            android:padding="10dp"
+            android:background="@drawable/edit_text_box"
+            android:textCursorDrawable="@drawable/cursor_color"
             android:hint="Restaurant Location \n(State, City, or Full Address)" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="100dp"
-            android:layout_marginRight="100dp"
-            android:layout_marginBottom="100dp"
             android:text="@string/new_experience"
             android:layout_alignParentBottom="true"
-            android:onClick="startExperience"
-            android:textColor="#ffffff"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="40dp"
+            android:layout_marginLeft="180dp"
+            android:layout_marginRight="10dp"
             android:background="@drawable/my_button"
-            >
+            android:textColor="#ffffff"
+            android:padding="16dp">
         </Button>
 
 

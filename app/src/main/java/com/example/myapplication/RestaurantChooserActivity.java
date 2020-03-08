@@ -102,7 +102,7 @@ public class RestaurantChooserActivity extends AppCompatActivity implements Loca
                 recyclerView.setHasFixedSize(true);
                 recyclerView.setLayoutManager(new LinearLayoutManager(RestaurantChooserActivity.this));
                 recyclerView.setAdapter(new RestaurantListAdapter(restaurantList, RestaurantChooserActivity.this));
-                recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));
+                // recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));
                 System.out.println("FOUND DATA!");
                 System.out.println(RestaurantChooserActivity.this.toString());
             }
@@ -180,7 +180,7 @@ public class RestaurantChooserActivity extends AppCompatActivity implements Loca
 
 
     //Moves to our current experience activity
-    public void startExperience(View view){
+    private void startExperience(View view){
 
         if(chosenRestaurantName == null){
             Toast.makeText(getApplicationContext(), "Please select a restaurant",
@@ -230,6 +230,8 @@ public class RestaurantChooserActivity extends AppCompatActivity implements Loca
         System.out.println("Address: " + chosenRestaurantAddress);
         System.out.println("Categories: " + chosenRestaurantCategories);
         System.out.println("Price: " + chosenRestaurantPrice);
+
+        startExperience(view);
 
 
     }

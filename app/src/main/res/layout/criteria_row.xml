@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,14 +8,16 @@
 
     <ImageView
         android:id="@+id/criteria_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"/>
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginRight="10dp"
+        tools:srcCompat="@tools:sample/avatars"/>
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/criteria_image">
+        android:layout_toRightOf="@id/criteria_image"
+        android:paddingLeft="8dp">
         <TextView
             android:id="@+id/preset_criteria"
             android:layout_width="wrap_content"
@@ -31,15 +33,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginBottom="7dp"
             android:layout_gravity="center_horizontal"
+            android:paddingTop="8dp"
             android:orientation="horizontal">
             <RadioButton
                 android:id="@+id/rate_poor"
-                android:layout_width="60dp"
+                android:layout_width="50dp"
                 android:layout_height="30dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginLeft="5dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginLeft="2dp"
                 android:background="@drawable/rb_button"
                 android:button="@android:color/transparent"
                 android:buttonTint="#9999FF"
@@ -48,10 +51,10 @@
                 android:text="@string/poor"/>
             <RadioButton
                 android:id="@+id/rate_meh"
-                android:layout_width="60dp"
+                android:layout_width="50dp"
                 android:layout_height="30dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginLeft="5dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginLeft="2dp"
                 android:background="@drawable/rb_button"
                 android:button="@android:color/transparent"
                 android:buttonTint="#9999FF"
@@ -60,10 +63,10 @@
                 android:text="@string/meh"/>
             <RadioButton
                 android:id="@+id/rate_ok"
-                android:layout_width="60dp"
+                android:layout_width="50dp"
                 android:layout_height="30dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginLeft="5dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginLeft="2dp"
                 android:background="@drawable/rb_button"
                 android:button="@android:color/transparent"
                 android:buttonTint="#9999FF"
@@ -72,10 +75,10 @@
                 android:text="@string/ok"/>
             <RadioButton
                 android:id="@+id/rate_good"
-                android:layout_width="60dp"
+                android:layout_width="50dp"
                 android:layout_height="30dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginLeft="5dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginLeft="2dp"
                 android:background="@drawable/rb_button"
                 android:button="@android:color/transparent"
                 android:buttonTint="#9999FF"
@@ -84,10 +87,10 @@
                 android:text="@string/good"/>
             <RadioButton
                 android:id="@+id/rate_great"
-                android:layout_width="60dp"
+                android:layout_width="50dp"
                 android:layout_height="30dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginLeft="5dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginLeft="2dp"
                 android:background="@drawable/rb_button"
                 android:button="@android:color/transparent"
                 android:buttonTint="#9999FF"

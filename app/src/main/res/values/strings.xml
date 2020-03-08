@@ -36,4 +36,10 @@
         <item>Food</item>
     </string-array>
 
+    <string-array name="criteria_img">
+        <item>tip_result</item>
+        <item>tip_result.png</item>
+        <item>tip_result</item>
+    </string-array>
+
 </resources>

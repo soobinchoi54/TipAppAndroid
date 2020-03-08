@@ -18,6 +18,7 @@
         android:layout_marginRight="10dp"
         android:onClick="onClickDeleteTable"
         android:text="@string/deleteTable"
+        android:textColor="#9999ff"
         android:background="@drawable/my_button2"/>
 
     <Button

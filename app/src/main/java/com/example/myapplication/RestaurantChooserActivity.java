@@ -16,6 +16,8 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -57,6 +59,12 @@ public class RestaurantChooserActivity extends AppCompatActivity implements Loca
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Remove title bar
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+        //Remove notification bar
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        setContentView(R.layout.activity_main);
         setContentView(R.layout.activity_restaurant_chooser);
         getLocation();
         System.out.println("latitude: " + latitude + " longitude: " + longitude);
@@ -209,8 +217,8 @@ public class RestaurantChooserActivity extends AppCompatActivity implements Loca
     @Override
     public void onClick(View view, int i, String imageUrl, String name, String address, String categories, String price) {
         //System.out.println(i);
-        restaurantChosenTextView = findViewById(R.id.tvRestaurantChosen);
-        restaurantChosenTextView.setText("Restaurant Selected:\n\n" + name + "\n" + address + "\n" + categories);
+//        restaurantChosenTextView = findViewById(R.id.tvRestaurantChosen);
+//        restaurantChosenTextView.setText("Restaurant Selected:\n\n" + name + "\n" + address + "\n" + categories);
         chosenRestaurantURL = imageUrl;
         chosenRestaurantName = name;
         chosenRestaurantAddress = address;

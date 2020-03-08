@@ -33,7 +33,8 @@
             android:label="@string/ViewHistory_activity" />
         <activity
             android:name=".MainActivity"
-            android:label="@string/main_acitivity">
+            android:label="@string/main_acitivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

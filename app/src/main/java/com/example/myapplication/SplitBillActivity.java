@@ -30,7 +30,7 @@ public class SplitBillActivity extends AppCompatActivity {
 
     private EditText partySize;
     private TextView amountOwed;
-    private Button splitButton;
+    private TextView splitButton;
 
     double size;
     double owedPP;

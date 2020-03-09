@@ -183,8 +183,6 @@ public class RestaurantChooserActivity extends AppCompatActivity implements Loca
     private void startExperience(View view){
 
         if(chosenRestaurantName == null){
-            Toast.makeText(getApplicationContext(), "Please select a restaurant",
-                    Toast.LENGTH_SHORT).show();
         }
         else{
 

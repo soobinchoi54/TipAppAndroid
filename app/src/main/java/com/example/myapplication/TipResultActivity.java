@@ -87,8 +87,6 @@ public class TipResultActivity extends AppCompatActivity {
         splitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(TipResultActivity.this,"Experience Completed!",Toast.LENGTH_SHORT).show();
-
                 // submit to tip result activity
                 Intent intent = new Intent(getApplicationContext(), SplitBillActivity.class);
                 // Create bundle containing data from previous activity
@@ -110,8 +108,6 @@ public class TipResultActivity extends AppCompatActivity {
         completeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(TipResultActivity.this,"Experience Completed!",Toast.LENGTH_SHORT).show();
-
                 // submit to tip result activity
                 Intent intent = new Intent(getApplicationContext(), ViewHistoryActivity.class);
                 // Create bundle containing data from previous activity

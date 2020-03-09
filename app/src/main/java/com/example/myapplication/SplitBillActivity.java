@@ -87,8 +87,6 @@ public class SplitBillActivity extends AppCompatActivity {
     }
 
     public void onClickComplete(View view) {
-        Toast.makeText(SplitBillActivity.this,"Experience Completed!",Toast.LENGTH_SHORT).show();
-
         // submit to tip result activity
         Intent intent = new Intent(getApplicationContext(), ViewHistoryActivity.class);
         // Create bundle containing data from previous activity

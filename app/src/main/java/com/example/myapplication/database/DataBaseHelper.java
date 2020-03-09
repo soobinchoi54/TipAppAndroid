@@ -127,8 +127,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         try {
             DataBaseHelper.add(db, experience);
         } catch (SQLiteException e) {
-            Toast toast = Toast.makeText(context, "Database unavailable", Toast.LENGTH_SHORT);
-            toast.show();
+            System.out.println("Database unavailable");
         }
     }
 
@@ -140,8 +139,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         try {
             experiences = DataBaseHelper.get(db);
         } catch (SQLiteException e){
-            Toast toast = Toast.makeText(context, "Database unavailable", Toast.LENGTH_SHORT);
-            toast.show();
+            System.out.println("Database unavailable");
         }
         return experiences;
     }
@@ -154,8 +152,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             db.execSQL("delete from TipsDataBase");
             System.out.println("Database Table deleted");
         } catch (SQLiteException e){
-            Toast toast = Toast.makeText(context, "Database unavailable", Toast.LENGTH_SHORT);
-            toast.show();
+            System.out.println("Database unavailable");
         }
     }
 

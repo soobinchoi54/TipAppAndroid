@@ -64,7 +64,7 @@ public class SplitBillActivity extends AppCompatActivity {
                 DecimalFormat f = new DecimalFormat("##.00");
 
                 // set amount owed per person
-                amountOwed.setText(f.format(owedPP));
+                amountOwed.setText(f.format(owedPP) + "   per person");
             }
         });
 

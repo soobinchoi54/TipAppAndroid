@@ -7,13 +7,12 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:layout_margin="10dp"
+    android:layout_margin="16dp"
     card_view:cardCornerRadius="8dp">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="10dp"
         android:background="@color/white_opaque">
 
         <!--    <ImageView-->
@@ -23,9 +22,8 @@
         <!--        tools:srcCompat="@tools:sample/avatars" />-->
         <ImageView
             android:id="@+id/ivRestaurant"
-            android:layout_width="150dp"
+            android:layout_width="match_parent"
             android:layout_height="150dp"
-            tools:srcCompat="@tools:sample/avatars"
             android:background="@android:color/transparent"/>
 
         <TextView
@@ -34,75 +32,87 @@
             android:layout_height="wrap_content"
             android:text="tvName"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:background="@android:color/transparent"/>
+            android:background="@android:color/transparent"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"/>
 
         <TextView
             android:id="@+id/tvLocation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="tvLocation"
-            android:background="@android:color/transparent"/>
+            android:background="@android:color/transparent"
+            android:paddingLeft="10dp"/>
 
         <TextView
             android:id="@+id/tvCategory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="tvCategory"
-            android:background="@android:color/transparent"/>
+            android:background="@android:color/transparent"
+            android:paddingLeft="10dp"/>
 
         <TextView
             android:id="@+id/tvPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="tvPrice"
-            android:background="@android:color/transparent"/>
+            android:background="@android:color/transparent"
+            android:paddingLeft="10dp"/>
 
         <TextView
             android:id="@+id/tvTotalBill"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="tvTotalBill"
-            android:background="@android:color/transparent"/>
+            android:background="@android:color/transparent"
+            android:paddingLeft="10dp"/>
 
         <TextView
             android:id="@+id/tvTipPercentage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="tvTipPercentage"
-            android:background="@android:color/transparent"/>
+            android:background="@android:color/transparent"
+            android:paddingLeft="10dp"/>
 
         <TextView
             android:id="@+id/tvTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="tvTime"
-            android:background="@android:color/transparent"/>
+            android:background="@android:color/transparent"
+            android:paddingLeft="10dp"/>
 
         <TextView
             android:id="@+id/tvService"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="tvService"
-            android:background="@android:color/transparent"/>
+            android:background="@android:color/transparent"
+            android:paddingLeft="10dp"/>
         <TextView
             android:id="@+id/tvTimeliness"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="tvTimeliness"
-            android:background="@android:color/transparent"/>
+            android:background="@android:color/transparent"
+            android:paddingLeft="10dp"/>
 
         <TextView
             android:id="@+id/tvFood"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="tvFood"
-            android:background="@android:color/transparent"/>
+            android:background="@android:color/transparent"
+            android:paddingLeft="10dp"/>
         <TextView
             android:id="@+id/tvCustom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
-            android:background="@android:color/transparent"/>
+            android:background="@android:color/transparent"
+            android:paddingLeft="10dp"/>
 
     </LinearLayout>
 

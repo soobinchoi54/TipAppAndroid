@@ -12,17 +12,14 @@
         android:id="@+id/enterNewRestaurantButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        style="@style/Button"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/my_button"
         android:onClick="enterNewRestaurant"
         android:text="@string/new_restaurant_info"
         android:textAllCaps="false"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="40dp"
-        android:layout_marginLeft="180dp"
-        android:layout_marginRight="10dp"
-        android:background="@drawable/my_button"
-        android:textColor="#ffffff"
-        android:padding="16dp"/>
+        android:textColor="#ffffff" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvRestaurantList"

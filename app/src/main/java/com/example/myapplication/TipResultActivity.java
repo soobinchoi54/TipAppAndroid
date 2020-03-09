@@ -33,7 +33,7 @@ public class TipResultActivity extends AppCompatActivity {
     private TextView tipPercentage;
     private TextView yourTotal;
     private Button completeButton;
-    private TextView splitButton;
+    private Button splitButton;
 
     double total;
     double tip;
@@ -74,7 +74,7 @@ public class TipResultActivity extends AppCompatActivity {
                 DecimalFormat f = new DecimalFormat("##.00");
 
                 // set text for your total bill after tip text view
-                yourTotal.setText(f.format(totalPlusTip));
+                yourTotal.setText(f.format(totalPlusTip) + " $");
             }
         });
 

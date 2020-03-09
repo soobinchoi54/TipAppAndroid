@@ -1,58 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:padding="15dp"
     tools:context=".NewRestaurantActivity">
 
-    <RelativeLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="450dp"
+        android:layout_margin="16dp"
+        card_view:cardCornerRadius="8dp">
 
-        <EditText
-            android:id="@+id/new_restaurant_name"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Restaurant Name"
-            android:layout_marginTop="100dp"
-            android:padding="10dp"
-            android:background="@drawable/edit_text_box"
-            android:textCursorDrawable="@drawable/cursor_color"/>
+            android:paddingTop="60dp"
+            android:paddingBottom="100dp"
+            style="@style/Card">
 
-        <EditText
-            android:id="@+id/new_restaurant_location"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/new_restaurant_name"
-            android:layout_marginTop="20dp"
-            android:padding="10dp"
-            android:background="@drawable/edit_text_box"
-            android:textCursorDrawable="@drawable/cursor_color"
-            android:hint="Restaurant Location \n(State, City, or Full Address)" />
+            <ImageView
+                android:id="@+id/icon"
+                android:layout_centerInParent="true"
+                android:layout_alignParentTop="true"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/food" />
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/new_experience"
-            android:onClick="startExperience"
-            android:layout_alignParentBottom="true"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="40dp"
-            android:layout_marginLeft="180dp"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/my_button"
-            android:textColor="#ffffff"
-            android:padding="16dp">
-        </Button>
+            <RelativeLayout
+                android:id="@+id/container1"
+                android:layout_centerInParent="true"
+                android:layout_below="@id/icon"
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent">
+                <TextView
+                    android:id="@+id/tvName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:textAlignment="center"
+                    android:textSize="18dp"
+                    android:text="Restaurant Name"
+                    android:textStyle="bold"
+                    android:background="@android:color/transparent"/>
+
+                <EditText
+                    android:id="@+id/new_restaurant_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/tvName"
+                    android:hint="Name"
+                    android:padding="16dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginLeft="30dp"
+                    android:background="@drawable/edit_text_box"
+                    android:textCursorDrawable="@drawable/cursor_color"/>
+
+            </RelativeLayout>
 
 
+            <RelativeLayout
+                android:id="@+id/container2"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/container1"
+                android:background="@android:color/transparent">
+                <TextView
+                    android:id="@+id/tvLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:textAlignment="center"
+                    android:textSize="18dp"
+                    android:text="Restaurant Location"
+                    android:textStyle="bold"
+                    android:background="@android:color/transparent"/>
+
+                <EditText
+                    android:id="@+id/new_restaurant_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/tvLocation"
+                    android:padding="16dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginLeft="30dp"
+                    android:background="@drawable/edit_text_box"
+                    android:textCursorDrawable="@drawable/cursor_color"
+                    android:hint="City" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/new_experience"
+        android:onClick="startExperience"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="40dp"
+        style="@style/Button"
+        android:background="@drawable/my_button"
+        android:textColor="#ffffff">
+    </Button>
 
 
-    </RelativeLayout>
-
-
-
-</LinearLayout>
+</RelativeLayout>

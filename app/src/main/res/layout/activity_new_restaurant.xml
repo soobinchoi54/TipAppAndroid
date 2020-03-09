@@ -35,21 +35,24 @@
                 android:layout_marginTop="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@android:color/transparent">
+                android:layout_alignEnd="@id/container2"
+                android:background="@android:color/transparent"
+                android:layout_alignRight="@id/container2">
+
                 <TextView
                     android:id="@+id/tvName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
                     android:padding="16dp"
+                    android:text="Name"
                     android:textAlignment="center"
                     android:textSize="18dp"
-                    android:text="Restaurant Name"
-                    android:textStyle="bold"
-                    android:background="@android:color/transparent"/>
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/new_restaurant_name"
-                    android:layout_width="wrap_content"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@+id/tvName"
                     android:hint="Name"
@@ -77,13 +80,13 @@
                     android:padding="16dp"
                     android:textAlignment="center"
                     android:textSize="18dp"
-                    android:text="Restaurant Location"
+                    android:text="Location"
                     android:textStyle="bold"
                     android:background="@android:color/transparent"/>
 
                 <EditText
                     android:id="@+id/new_restaurant_location"
-                    android:layout_width="wrap_content"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@+id/tvLocation"
                     android:padding="16dp"

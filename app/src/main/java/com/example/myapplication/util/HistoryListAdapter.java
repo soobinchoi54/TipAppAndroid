@@ -92,6 +92,8 @@ public class HistoryListAdapter extends RecyclerView.Adapter<HistoryListAdapter.
         } else {
             Picasso.get()
                     .load("https://i.imgur.com/DvpvklR.png")
+                    .fit()
+                    .centerCrop()
                     .into(holder.ivRestaurant);
         }
 

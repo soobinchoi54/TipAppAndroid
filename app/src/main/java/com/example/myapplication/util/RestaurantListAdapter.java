@@ -74,7 +74,7 @@ public class RestaurantListAdapter extends RecyclerView.Adapter<RestaurantListAd
 
         //Set all text views with movie data
         holder.tvName.setText(restaurant.getName());
-        holder.tvAddress.setText(restaurant.getAddress());
+        holder.tvAddress.setText(restaurant.getAddress().split(",")[0]);
         holder.tvCategories.setText(restaurant.getCategories());
         holder.tvPrice.setText(restaurant.getPrice());
 

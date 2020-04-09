@@ -1,6 +1,11 @@
 # TipAppAndroid
 A RESTful API based tip application on Android platform
 
+### 1.1 Motivation
+Tipping is often an awkward but necessary part of any dining experience. It can sometimes feel like you are being put on the spot when a tip amount is already predetermined for you (15% 18% 20% etc.) There are tipping apps on the current market; however, most of them are simple calculators. We were driven to make tipping easier through an interactive app that gives customers a way to quantify their dining experiences based on a set of dining-related criteria. Ultimately, the app creates a more personal approach to paying bills and helps calculate a fair tip that reflects the genuine quality of customers’ dining experiences.
+
+### 1.2 Solution 
+Instead of using the built-in calculator to calculate an arbitrary number for your tip, diners can use the Tip App, which gamifies the tipping experience. Diners can base their tips on a pre-set review criteria that reflect their dining experiences. The app will then add or subtract tip percentages based on their perceived experience, consolidate a final tip percentage, and apply the value to calculate the final amount. 
 
 
 ## 1. Architecture

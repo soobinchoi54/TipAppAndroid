@@ -3,7 +3,7 @@ A tip application based on Android platform
 ![logo](/pics/logo.png)
 
 ## Architecture
-![architecture](/pics/architecture.png)
+![architecture](/pics/architecture.png=100x100)
 
 
 Contributors/Distribution:

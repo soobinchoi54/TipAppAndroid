@@ -31,6 +31,7 @@ The architecture of Tip App is mostly connected by explicit message-based calls 
 * Picasso
 * SQLite DB
 * Builder Pattern
+* CardView Style UI
 
 
 

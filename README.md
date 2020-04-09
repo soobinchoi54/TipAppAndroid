@@ -14,7 +14,7 @@ Instead of using the built-in calculator to calculate an arbitrary number for yo
 ### 1.1 About
 The architecture of Tip App is mostly connected by explicit message-based calls from one component to another using Android intents. The app also utilizes a bounded service to support timer functionality, which calculates the amount of time elapsed since the start of a dining experience. The time elapsed is displayed to the user and serves as a value to be factored into the user’s quantification of their dining experience. Apart from explicit method calls, Connectors are also implemented to support some of the key components of the app.</div>
 
-### 1.2 The Tip App consists of eight major components: 
+### 1.2 Eight major components: 
 * Main Menu
 * Restaurant List
 * Restaurant External Database

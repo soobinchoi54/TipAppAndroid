@@ -1,16 +1,18 @@
 # TipAppAndroid
-A tip application based on Android platform
+A RESTful API based tip application on Android platform
 
-## Architecture
+
+
+## 1.Architecture
 ![architecture](/pics/architecture.png)
 
-### About
+### 1.1About
 The architecture of Tip App is mostly connected by explicit message-based calls from one component to another using Android intents. The app also utilizes a bounded service to support timer functionality, which calculates the amount of time elapsed since the start of a dining experience. The time elapsed is displayed to the user and serves as a value to be factored into the user’s quantification of their dining experience. Apart from explicit method calls, Connectors are also implemented to support some of the key components of the app.</div>
 
-### The Tip App consists of eight major components: 
+### 1.2The Tip App consists of eight major components: 
 * Main Menu
 * Restaurant List
-* Restaurant External Database(RESTful API based)
+* Restaurant External Database
 * Experience Review Page
 * Timer
 * Tip Result
@@ -18,7 +20,13 @@ The architecture of Tip App is mostly connected by explicit message-based calls 
 * History List
 
 
-## Contributors/Distribution:
+
+## 2.Screenshots
+![sc1](/pics/sc1.png)
+
+
+
+## 3.Contributors/Distribution:
   * [Duo Chai.](https://github.com/Danny7226) (https://github.com/Danny7226/TipAppAndroid/commits?author=Danny7226)  
   * [Soobin Choi.](https://github.com/soobinchoi54) (https://github.com/Danny7226/TipAppAndroid/commits?author=soobinchoi54)  
   * [Marc Andrada.](https://github.com/marc-andrada) (https://github.com/Danny7226/TipAppAndroid/commits?author=marc-andrada)  

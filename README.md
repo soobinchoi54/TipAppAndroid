@@ -32,7 +32,6 @@ The architecture of Tip App is mostly connected by explicit message-based calls 
 ## 3. Screenshots
 ![sc1](/pics/sc1.png)
 ![sc2](/pics/sc2.png)
-![sc3](/pics/sc3.png)
 ![sc4](/pics/sc4.png)
 ![sc5](/pics/sc5.png)
 

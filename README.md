@@ -41,7 +41,7 @@ The architecture of Tip App is mostly connected by explicit message-based calls 
 ![sc5](/pics/sc5.png)
 
 
-## 3. Contributors/Distribution:
+## 4. Contributors/Distribution:
   * [Duo Chai.](https://github.com/Danny7226) (https://github.com/Danny7226/TipAppAndroid/commits?author=Danny7226)  
   * [Soobin Choi.](https://github.com/soobinchoi54) (https://github.com/Danny7226/TipAppAndroid/commits?author=soobinchoi54)  
   * [Marc Andrada.](https://github.com/marc-andrada) (https://github.com/Danny7226/TipAppAndroid/commits?author=marc-andrada)  

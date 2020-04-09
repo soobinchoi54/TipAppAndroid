@@ -1,9 +1,9 @@
 # TipAppAndroid
 A tip application based on Android platform
-![logo](/pics/logo.jpg){ width=50% }
+![logo](/pics/logo.png)
 
 ## Architecture
-![architecture](/pics/architecture.png=100x100)
+![architecture](/pics/architecture.png=100x100|width=50|height=50)
 
 
 Contributors/Distribution:
